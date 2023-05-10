@@ -1,2 +1,12 @@
-# Cahier des charges (V1) Equipe 4B01
-## 
+## Cahier des charges du projet DailyBank(V1) Equipe 4B01, 10/05/2023
+
+### Sommaire
+
+
+* Présentation du sujet
+** contexte, objectifs, à quel problème répond-t-il ?
+* Analyse de l’existant
+* Analyse des besoins incluant V0 et V1
+* Analyse des contraintes
+** techniques & organisationnelles
+
