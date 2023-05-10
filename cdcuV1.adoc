@@ -11,7 +11,7 @@
 ** techniques & organisationnelles
 
 '''
-_Présentation du sujet -_
+## _Présentation du sujet -_
 
 * Contexte
 ----
@@ -30,7 +30,7 @@ bancaire, soit par une personne physique se présentant devant un guichet.
 ----
 
 
-### Version existante
+## _Version existante -_
 
 Dans la version actuelle de l'application, il existe deux rôles, le *gichetier* et le *chef d'agence*, le gichetier a la possibilité de réaliser les tâches suivantes :
 
