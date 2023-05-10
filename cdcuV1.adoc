@@ -49,7 +49,16 @@ image::.github/useCaseV0.png[]
 
 ## _Analyse des besoins v1_
 
-image::.github/dc-initialv1.svg[]
+La V1 de l'application va permettre au *gichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
+
+* Créer un compte
+* Créditer un compte
+* Effectuer un virement de compte à compte
+* Clôturer un compte
+
+Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un guichetier et aura désormais la possibilité de *gérer les employés (CRUD)*.
+
+image::.github/useCaseV1.drawio.svg[]
 
 
 ## _Analyse des contraintes_
