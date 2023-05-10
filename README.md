@@ -1,9 +1,9 @@
-=== Exemple readme étudiant
+### Exemple readme étudiant
 
-==== Présentation de l'équipe et rôles respectifs
+#### Présentation de l'équipe et rôles respectifs
 
 
-==== Répartition des tâches et état d'avancement
+#### Répartition des tâches et état d'avancement
 [options="header,footer"]
 |=======================
 |version|rôle     |use case   |cas...                 |   Etudiant 1 | Etudiant 2  |   Etudiant 3 | Etudiant 4
@@ -35,7 +35,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 *	*F* pour fonctionnel ou
 *	*D* pour encore en Développement
 
-==== Livrables
+#### Livrables
 
 [cols="1,2,2,5",options=header]
 |===
