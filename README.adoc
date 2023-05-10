@@ -7,6 +7,8 @@
 * Mathis Brefuel
 * Maxime Planquès
 
+.Lien du CDCU : https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/cdcuV1.adoc
+
 ## Répartition des tâches et état d'avancement
 [options="header,footer"]
 |=======================
