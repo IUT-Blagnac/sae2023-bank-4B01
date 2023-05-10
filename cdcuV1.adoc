@@ -29,3 +29,15 @@ c’est à dire un échange d’argent entre deux comptes distincts mais domicil
 bancaire, soit par une personne physique se présentant devant un guichet.
 ----
 
+
+### Version existante
+
+Dans la version actuelle de l'application, il existe deux rôles, le *gichetier* et le *chef d'agence*, le gichetier a la possibilité de réaliser les tâches suivantes :
+
+* Modifier des informations client(adresse, téléphone)
+* Créer un nouveau client
+* Consulter un compte
+* Débiter un compte
+
+Le *chef d'agence* peut réaliser toutes ces tâches et peut également *rendre inatif un client*.
+
