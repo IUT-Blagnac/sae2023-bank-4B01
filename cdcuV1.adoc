@@ -41,4 +41,15 @@ Dans la version actuelle de l'application, il existe deux rôles, le *gichetier*
 
 Le *chef d'agence* peut réaliser toutes ces tâches et peut également *rendre inatif un client*.
 
+
+## _Analyse des besoins v0_
+
 image::.github/dc-initialv0.svg[]
+
+
+## _Analyse des besoins v1_
+
+image::.github/dc-initialv1.svg[]
+
+
+## _Analyse des contraintes_
