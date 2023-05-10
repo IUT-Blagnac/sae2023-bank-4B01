@@ -41,3 +41,4 @@ Dans la version actuelle de l'application, il existe deux rôles, le *gichetier*
 
 Le *chef d'agence* peut réaliser toutes ces tâches et peut également *rendre inatif un client*.
 
+image::".github/dc-initialv0.svg"[]
