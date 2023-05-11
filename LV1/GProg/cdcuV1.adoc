@@ -62,3 +62,8 @@ image::.github/useCaseV1.drawio.svg[]
 
 
 ## _Analyse des contraintes_
+
+Afin de lancer le programme, l'utilisateur devra disposer des éléments suivants :
+
+* La version 17 de java
+* Un serveur SQL permettant de stocker la base de données liée au projet
