@@ -63,10 +63,19 @@ image::useCaseV1.drawio.svg[]
 
 ## _Analyse des contraintes_
 
-Ce projet comporte des contraintes tant dans l'organisation de l'équipe que 
+Ce projet comporte des contraintes tant dans l'organisation de l'équipe que techniques :
 
+* Organisationnelles
+
+** Répartir les tâches équitablement
+** Respecter les délais de chacune des tâches
+** Prévoir des retards sur certaines tâches et réussir à s'adapter
+** Communiquer sur l'avancement et les éventuels problèmes rencontrés (GitHub + Discord)
+
+
+* Techniques
 
 Afin de lancer le programme, l'utilisateur devra disposer des éléments suivants :
 
-* La version 17 de java
-* Un serveur SQL permettant de stocker la base de données liée au projet
+** La version 17 de java
+** Un serveur SQL permettant de stocker la base de données liée au projet
