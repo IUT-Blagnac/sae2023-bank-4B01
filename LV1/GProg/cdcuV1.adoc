@@ -44,7 +44,7 @@ Le *chef d'agence* peut réaliser toutes ces tâches et peut également *rendre 
 
 ## _Analyse des besoins v0_
 
-image::LV1/GProg/useCaseV0.png[]
+image::useCaseV0.png[]
 
 
 ## _Analyse des besoins v1_
@@ -58,7 +58,7 @@ La V1 de l'application va permettre au *gichetier* de réaliser les mêmes actio
 
 Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un guichetier et aura désormais la possibilité de *gérer les employés (CRUD)*.
 
-image::.github/useCaseV1.drawio.svg[]
+image::useCaseV1.drawio.svg[]
 
 
 ## _Analyse des contraintes_
