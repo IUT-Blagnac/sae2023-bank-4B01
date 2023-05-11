@@ -1,0 +1,2 @@
+.( utiliser GIT Desktop, PAS LES LIGNES DE COMMANDES )
+https://www.datacamp.com/tutorial/git-push-pull
