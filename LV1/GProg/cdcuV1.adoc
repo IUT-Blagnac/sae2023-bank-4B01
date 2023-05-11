@@ -44,6 +44,8 @@ Le *chef d'agence* peut réaliser toutes ces tâches et peut également *rendre 
 
 ## _Analyse des besoins v0_
 
+image::.github/useCaseV0.png[]
+
 
 ## _Analyse des besoins v1_
 
