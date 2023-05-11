@@ -75,7 +75,7 @@ Ce projet comporte des contraintes tant dans l'organisation de l'équipe que tec
 
 * Techniques
 
-Afin de lancer le programme, l'utilisateur devra disposer des éléments suivants :
-
 ** La version 17 de java
 ** Un serveur SQL permettant de stocker la base de données liée au projet
+
+Ces contraintes techniques sont destinées aux auteurs du projet et également à l'utilisateur (client) qui devra disposer des éléments cités ci-dessus.
