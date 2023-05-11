@@ -63,6 +63,9 @@ image::.github/useCaseV1.drawio.svg[]
 
 ## _Analyse des contraintes_
 
+Ce projet comporte des contraintes tant dans l'organisation de l'équipe que 
+
+
 Afin de lancer le programme, l'utilisateur devra disposer des éléments suivants :
 
 * La version 17 de java
