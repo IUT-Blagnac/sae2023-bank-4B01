@@ -2,10 +2,11 @@
 
 ## Présentation de l'équipe
 
-.L'équipe 4B01 est composée des trois membres suivants :
+.L'équipe 4B01 est composée des quatre membres suivants :
 * Angelo Nichele
 * Mathis Brefuel
 * Maxime Planquès
+* Robin Fligitter
 
 
 
@@ -13,25 +14,25 @@
 ## Répartition des tâches et état d'avancement
 [options="header,footer"]
 |=======================
-|version|rôle     |use case   |cas...                 |   Angelo | Maxime  |   Mathis 
-|1    |Chef d’Agence    |CRUD employé  |C| | | D
-|1    |Chef d’Agence    |CRUD employé  |R| | | D
-|1    |Chef d’Agence |CRUD employé  |U| | | D
-|1    |Chef d’Agence   |CRUD employé  |D| | | D
-|1    |Guichetier     | Compte | Créer|  | D | 
-|1    |Guichetier     | Compte | Créditer/Débiter| D | | 
-|1    |Guichetier     | Compte | Effectuer un virement|  | | D 
-|1    |Guichetier     | Compte | Clôturer|  | D |  
-|2    |Chef d’Agence     | Compte | Débit exceptionnel|| |  
-|2    |Chef d’Agence     | Emprunt | Simuler emprunt|| |  
-|2    |Chef d’Agence     | Emprunt | Simuler assurance|| |  
-|2    |Guichetier     | Compte | Relevé PDF|| |  
-|2    |Guichetier     | CRUD Prélèvement | C|| |  
-|2    |Guichetier     | CRUD Prélèvement | R|| | 
-|2    |Guichetier     | CRUD Prélèvement | U|| | 
-|2    |Guichetier     | CRUD Prélèvement | D|| |  
-|2    |Batch     | Prélèvements automatiques | || | 
-|2    |Batch     | Reléves mensuels | || |  
+|version|rôle     |use case   |cas...                 |   Angelo | Maxime  |   Mathis | Robin
+|1    |Chef d’Agence    |CRUD employé  |C| | | D|
+|1    |Chef d’Agence    |CRUD employé  |R| | | D|
+|1    |Chef d’Agence |CRUD employé  |U| | | D|
+|1    |Chef d’Agence   |CRUD employé  |D| | | D|
+|1    |Guichetier     | Compte | Créer|  | D | |
+|1    |Guichetier     | Compte | Créditer/Débiter| D | | |
+|1    |Guichetier     | Compte | Effectuer un virement|  | | D |
+|1    |Guichetier     | Compte | Clôturer|  | D |  |
+|2    |Chef d’Agence     | Compte | Débit exceptionnel|| |  |
+|2    |Chef d’Agence     | Emprunt | Simuler emprunt|| |  |
+|2    |Chef d’Agence     | Emprunt | Simuler assurance|| |  |
+|2    |Guichetier     | Compte | Relevé PDF|| |  |
+|2    |Guichetier     | CRUD Prélèvement | C|| |  |
+|2    |Guichetier     | CRUD Prélèvement | R|| |  |
+|2    |Guichetier     | CRUD Prélèvement | U|| |  |
+|2    |Guichetier     | CRUD Prélèvement | D|| |  |
+|2    |Batch     | Prélèvements automatiques | || | |
+|2    |Batch     | Reléves mensuels | || | | 
 
 |=======================
 
