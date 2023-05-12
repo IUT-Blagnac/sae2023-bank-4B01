@@ -2,6 +2,7 @@ package application.control;
 
 import java.util.ArrayList;
 
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.CategorieOperation;
@@ -21,6 +22,13 @@ import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
+/**
+ * 
+ * Cette classe permet de gérer les opérations pour un compte courant.
+ * Elle contient des méthodes pour afficher une fenêtre de gestion des opérations,
+ * enregistrer une opération de débit et récupérer la liste des opérations d'un compte courant. 
+ *
+ */
 public class OperationsManagement {
 
 	private Stage primaryStage;
@@ -58,10 +66,22 @@ public class OperationsManagement {
 		}
 	}
 
+	/**
+	 * 
+	 * Affiche la fenêtre de gestion des opérations.
+	 * 
+	 */
 	public void doOperationsManagementDialog() {
 		this.omcViewController.displayDialog();
 	}
 
+	/**
+	 * 
+	 * Enregistre une opération de débit pour le compte courant.
+	 * 
+	 * @return l'opération enregistrée ou null si une erreur est survenue
+	 * 
+	 */
 	public Operation enregistrerDebit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
@@ -86,6 +106,13 @@ public class OperationsManagement {
 		return op;
 	}
 
+	/**
+	 * 
+	 * Récupère la liste des opérations et le solde du compte courant.
+	 * 
+	 * @return un objet PairsOfValue contenant le compte courant et la liste des opérations
+	 * 
+	 */
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {
 		ArrayList<Operation> listeOP = new ArrayList<>();
 

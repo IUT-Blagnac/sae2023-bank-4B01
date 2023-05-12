@@ -16,7 +16,7 @@ import model.data.Client;
 
 /**
  * 
- * 
+ * La classe ClientEditorPane permet de gérer l'édition d'un client.
  *
  */
 public class ClientEditorPane {
@@ -50,6 +50,16 @@ public class ClientEditorPane {
 		}
 	}
 
+	/**
+	 * 
+	 * Ouvre une boîte de dialogue d'édition de client.
+	 * 
+	 * @param client Le client à éditer.
+	 * @param em Le mode d'édition à utiliser.
+	 * 
+	 * @return Le client édité.
+	 * 
+	 */
 	public Client doClientEditorDialog(Client client, EditionMode em) {
 		return this.cepcViewController.displayDialog(client, em);
 	}
