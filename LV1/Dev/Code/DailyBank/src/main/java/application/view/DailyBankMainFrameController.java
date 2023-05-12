@@ -1,7 +1,5 @@
 package application.view;
 
-import java.time.LocalDate;
-
 import application.DailyBankState;
 import application.control.DailyBankMainFrame;
 import application.tools.AlertUtilities;
@@ -206,12 +204,12 @@ public class DailyBankMainFrameController {
 	 */
 	@FXML
 	private void doEmployeOption() {
-
-		LocalDate current_date;
-
-		current_date = LocalDate.now();
-		AlertUtilities.showAlert(this.primaryStage, "Gestion des Employé", "En cours de développement",
-				"Livraison prévue\nEn juin " + current_date.getYear(), AlertType.INFORMATION);
+		this.dbmfDialogController.gestionEmploye();
+//		LocalDate current_date;
+//
+//		current_date = LocalDate.now();
+//		AlertUtilities.showAlert(this.primaryStage, "Gestion des Employé", "En cours de développement",
+//				"Livraison prévue\nEn juin " + current_date.getYear(), AlertType.INFORMATION);
 	}
 
 	/*
