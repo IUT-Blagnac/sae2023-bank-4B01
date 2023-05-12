@@ -1,6 +1,7 @@
 package application.control;
 
 import application.DailyBankApp;
+
 import application.DailyBankState;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
@@ -13,11 +14,20 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * 
+ * Classe représentant un panneau d'édition de compte courant. 
+ * Cette classe est utilisée pour afficher une boîte de dialogue d'édition de compte courant.
+ * Le panneau contient un formulaire permettant de modifier les informations du compte courant, 
+ * comme le solde, le découvert autorisé, etc.
+ *
+ */
 public class CompteEditorPane {
 
 	private Stage primaryStage;
 	private CompteEditorPaneController cepcViewController;
 
+	
 	public CompteEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
@@ -43,6 +53,17 @@ public class CompteEditorPane {
 		}
 	}
 
+	/**
+	 * 
+	 * Ouvre une boîte d'édition des comptes
+	 * 
+	 * @param client Le client à éditer
+	 * @param cpte Le compte à éditer
+	 * @param em Le mode d'édition à utiliser
+	 * 
+	 * @return Le compte créé
+	 * 
+	 */
 	public CompteCourant doCompteEditorDialog(Client client, CompteCourant cpte, EditionMode em) {
 		return this.cepcViewController.displayDialog(client, cpte, em);
 	}

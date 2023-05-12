@@ -2,6 +2,7 @@ package application.view;
 
 import java.util.ArrayList;
 
+
 import application.DailyBankState;
 import application.control.ComptesManagement;
 import javafx.collections.FXCollections;
@@ -16,6 +17,11 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * 
+ * Cette classe est le contrôleur de la fenêtre de gestion des comptes d'un client.
+ *
+ */
 public class ComptesManagementController {
 
 	// Etat courant de l'application
@@ -31,6 +37,16 @@ public class ComptesManagementController {
 	private Client clientDesComptes;
 	private ObservableList<CompteCourant> oListCompteCourant;
 
+	/**
+	 * 
+	 * Initialise le contexte de la fenêtre
+	 * 
+	 * @param _containingStage
+	 * @param _cm
+	 * @param _dbstate
+	 * @param client
+	 * 
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, ComptesManagement _cm, DailyBankState _dbstate, Client client) {
 		this.cmDialogController = _cm;
@@ -40,6 +56,11 @@ public class ComptesManagementController {
 		this.configure();
 	}
 
+	/**
+	 * 
+	 * Configure la fenêtre et initialise les données.
+	 * 
+	 */
 	private void configure() {
 		String info;
 
@@ -59,10 +80,22 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * 
+	 * Affiche la fenêtre de dialogue.
+	 * 
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
 
+	/**
+	 * 
+	 * Ferme la fenêtre de gestion des comptes.
+	 * 
+	 * @param e
+	 * @return null
+	 */
 	// Gestion du stage
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
@@ -83,11 +116,21 @@ public class ComptesManagementController {
 	@FXML
 	private Button btnSupprCompte;
 
+	/**
+	 * 
+	 * Ferme la fenêtre de gestion des comptes.
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Ouvre la fenêtre de gestion des opérations pour le compte sélectionné
+	 * 
+	 */
 	@FXML
 	private void doVoirOperations() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -99,14 +142,29 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * 
+	 * Modifie le compte sélectionné
+	 * 
+	 */
 	@FXML
 	private void doModifierCompte() {
 	}
 
+	/**
+	 * 
+	 * Supprime le compte sélectionné.
+	 * 
+	 */
 	@FXML
 	private void doSupprimerCompte() {
 	}
 
+	/**
+	 * 
+	 * Cree un nouveau comptz
+	 * 
+	 */
 	@FXML
 	private void doNouveauCompte() {
 		CompteCourant compte;

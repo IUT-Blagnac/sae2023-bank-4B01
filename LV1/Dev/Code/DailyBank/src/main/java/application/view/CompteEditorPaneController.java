@@ -2,6 +2,7 @@ package application.view;
 
 import java.util.Locale;
 
+
 import application.DailyBankState;
 import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
@@ -17,6 +18,11 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * 
+ * Cette classe permet de gérer l'interface graphique de création, modification et suppression des comptes courants.
+ *
+ */
 public class CompteEditorPaneController {
 
 	// Etat courant de l'application
@@ -31,6 +37,14 @@ public class CompteEditorPaneController {
 	private CompteCourant compteEdite;
 	private CompteCourant compteResultat;
 
+	/**
+	 * 
+	 * Permet d'initialiser le contexte de l'application.
+	 * 
+	 * @param _containingStage la fenêtre contenant la scène
+	 * @param _dbstate l'état courant de l'application
+	 * 
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
@@ -45,6 +59,17 @@ public class CompteEditorPaneController {
 		this.txtSolde.focusedProperty().addListener((t, o, n) -> this.focusSolde(t, o, n));
 	}
 
+	/**
+	 * 
+	 * Permet d'afficher la boîte de dialogue de création de compte courant.
+	 * 
+	 * @param client le client propriétaire du compte courant
+	 * @param cpte le compte courant à éditer (null pour une création)
+	 * @param mode le mode d'édition (création, modification ou suppression)
+	 * 
+	 * @return le compte courant résultant (null si annulé)
+	 * 
+	 */
 	public CompteCourant displayDialog(Client client, CompteCourant cpte, EditionMode mode) {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
@@ -96,6 +121,15 @@ public class CompteEditorPaneController {
 		return this.compteResultat;
 	}
 
+	/**
+	 * 
+	 * Fonction de gestion de fermeture de la fenêtre.
+	 * 
+	 * @param e l'événement de fermeture de la fenêtre
+	 * 
+	 * @return null
+	 * 
+	 */
 	// Gestion du stage
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
@@ -103,6 +137,17 @@ public class CompteEditorPaneController {
 		return null;
 	}
 
+	/**
+	 * 
+	 * Fonction de gestion de l'activation du champ de débit autorisé.
+	 * 
+	 * @param txtField le champ de texte concerné
+	 * @param oldPropertyValue la valeur précédente de la propriété de focus
+	 * @param newPropertyValue la nouvelle valeur de la propriété de focus
+	 * 
+	 * @return null
+	 * 
+	 */
 	private Object focusDecouvert(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -120,6 +165,17 @@ public class CompteEditorPaneController {
 		return null;
 	}
 
+	/**
+	 * 
+	 * Fonction de gestion de l'activation du champ de solde
+	 * 
+	 * @param txtField le champ de texte concerné
+	 * @param oldPropertyValue la valeur précédente de la propriété de focus
+	 * @param newPropertyValue la nouvelle valeur de la propriété de focus
+	 * 
+	 * @return null
+	 * 
+	 */
 	private Object focusSolde(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -158,12 +214,22 @@ public class CompteEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * 
+	 * Annule l'action en cours et ferme la fenêtre.
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.compteResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Ajouter le compte à la liste
+	 * 
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -187,6 +253,13 @@ public class CompteEditorPaneController {
 
 	}
 
+	/**
+	 * 
+	 * Permet de vérifier si la saisie de l'utilisateur est valide
+	 * 
+	 * @return vrai ou faux si c'est valide ou non
+	 * 
+	 */
 	private boolean isSaisieValide() {
 
 		return true;
