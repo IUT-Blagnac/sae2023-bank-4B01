@@ -1,6 +1,7 @@
 package application.control;
 
 import application.DailyBankApp;
+
 import application.DailyBankState;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
@@ -14,7 +15,8 @@ import javafx.stage.Stage;
 import model.data.Client;
 
 /**
- * Classe qui gère le editorPane pour le client
+ * 
+ * 
  *
  */
 public class ClientEditorPane {
