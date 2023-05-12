@@ -1,4 +1,4 @@
-package application.control;
+﻿package application.control;
 
 import application.DailyBankApp;
 import application.DailyBankState;
@@ -121,7 +121,7 @@ public class DailyBankMainFrame extends Application {
 		ClientsManagement cm = new ClientsManagement(this.primaryStage, this.dailyBankState);
 		cm.doClientManagementDialog();
 	}
-	public void gestionEmploye() {
+        public void gestionEmploye() {
 		EmployeManagement em = new EmployeManagement(this.primaryStage, this.dailyBankState);
 		em.doClientManagementDialog();
 	}
