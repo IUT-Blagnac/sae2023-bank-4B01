@@ -1,1 +1,62 @@
+# Document Technique de Daily Bank V0
 
+Equipe: 
+* Fligitter Robin -- Redacteur 
+* Brefuel Mathis
+* Planques Maxime
+* Nichele Angelo 
+
+La documentation technique est un document à destination des programmeurs en charge de la maintenance de l’application. 
+Elle décrit l’ensemble de l’application développée dans la version 0.
+Elle décrit les fonctionnalités développées.
+
+# Sommaire 
+
+** Presentation de l'Application
+  * Use Case Global
+  * diagramme de classe
+** Architecture
+  * Architecture générale
+  * Ressources externes
+  * Structuration des packages
+  * Eléments essentiels
+** Fonctionnalités
+  * Modifier les information clients
+  * Créer un nouveau client
+  * Consulter un compte
+  * Debiter un compte
+  * Rendre inactif un client
+  
+# Présentation de l'application
+
+L'application Daily Bank est l'outil de gestion de comptes des clients et en raison d'un besoin de restructuration des services banquaires nous allons développer cette application devenue obsolète. Nous allons alors adapter cette application aux nouveaux besoin de la banque.
+
+## Use Case Global
+
+Le *Guichetier* est le rôle centrale de l'application, il représente l'employé lambda de gestion des clients, il a accès aux fonctionnalités basiques de la gestion des clients et des comptes.
+
+* Modifier les infos clients
+* Créer un nouveau client
+* Consulter un compte
+* Débiter un compte 
+
+Le *Chef d'Agence* représente le supérieur du guichetier, il a accès à toutes les fonctionnalités du guichetier et d'autre fonctionnalités propre à son rôle.
+
+* Modifier les infos clients
+* Créer un nouveau client
+* Consulter un compte
+* Débiter un compte 
+* *Rendre Inactif un client*
+
+## Diagramme de classe
+
+Voici le diagramme de classe de données globale de la base de données
+
+  
+  
+  
+  
+  
+  
+  
+  
