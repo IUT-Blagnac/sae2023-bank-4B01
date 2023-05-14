@@ -1,4 +1,4 @@
-package application.view;
+﻿package application.view;
 
 import java.util.Locale;
 
@@ -92,11 +92,23 @@ public class OperationEditorPaneController {
 			this.cbTypeOpe.setItems(listTypesOpesPossibles);
 			this.cbTypeOpe.getSelectionModel().select(0);
 			break;
+			
 		case CREDIT:
-			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
-					AlertType.ERROR);
-			return null;
-		// break;
+			
+			String infoCre = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoCre);
+
+			this.btnOk.setText("Effectuer Crédit");
+			this.btnCancel.setText("Annuler Crédit");
+
+			ObservableList<String> ListTypesOpesPossibles = FXCollections.observableArrayList();
+			ListTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_CREDIT_GUICHET);
+
+			this.cbTypeOpe.setItems(ListTypesOpesPossibles);
+			this.cbTypeOpe.getSelectionModel().select(0);
+			break;
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences
@@ -194,9 +206,31 @@ public class OperationEditorPaneController {
 			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			this.primaryStage.close();
 			break;
+			
 		case CREDIT:
-			// ce genre d'operation n'est pas encore géré
-			this.operationResultat = null;
+			
+			double montantCre;
+
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+			String infoCre = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoCre);
+
+			try {
+				montantCre = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montantCre <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+				return;
+			}
+			String TypeOp = this.cbTypeOpe.getValue();
+			this.operationResultat = new Operation(-1, montantCre, null, null, this.compteEdite.idNumCli, TypeOp);
 			this.primaryStage.close();
 			break;
 		}

@@ -124,7 +124,7 @@ public class OperationsManagementController {
 			this.validateComponentState();
 		}
 	}
-
+	
 	/**
      * Gère l'événement de clic sur le bouton de crédit.
      */

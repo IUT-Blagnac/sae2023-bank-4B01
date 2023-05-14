@@ -105,7 +105,7 @@ public class OperationsManagement {
 		}
 		return op;
 	}
-
+	
 	/**
 	 * 
 	 * Récupère la liste des opérations et le solde du compte courant.

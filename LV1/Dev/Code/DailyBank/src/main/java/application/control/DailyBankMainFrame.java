@@ -1,6 +1,7 @@
 ﻿package application.control;
 
 import application.DailyBankApp;
+
 import application.DailyBankState;
 import application.view.DailyBankMainFrameController;
 import javafx.application.Application;

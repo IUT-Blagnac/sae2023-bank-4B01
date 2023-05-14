@@ -1,4 +1,4 @@
-package application.view;
+﻿package application.view;
 
 import java.util.ArrayList;
 
@@ -130,6 +130,12 @@ public class OperationsManagementController {
      */
 	@FXML
 	private void doCredit() {
+		
+		Operation op = this.omDialogController.enregistrerCredit();
+		if (op != null) {
+			this.updateInfoCompteClient();
+			this.validateComponentState();
+		}
 	}
 
 	/**
