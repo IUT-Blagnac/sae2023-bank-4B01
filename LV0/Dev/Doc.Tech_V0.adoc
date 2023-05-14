@@ -53,7 +53,7 @@ Le *Chef d'Agence* représente le supérieur du guichetier, il a accès à toute
 
 Voici le diagramme de classe de données globale de la base de données
 
-image::DiagrammeDeClasseDeDonnéesGlobales.png[alt=Diagramme de Classe, title=Base de données]
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéesGlobales.png[alt=Diagramme de Classe, title=Base de données]
 
 * ' EMPLOYE ': représente les employés de la banque, qui ont des login et des droits d'accès différents selon si ils sont chef d'agence ou pas (DROITSACCES).
 * ' AGENCEBANCAIRE' : represente une agence constitué du nom de l'agence, de son adresse, d'un id et d'un chef d'agence représenté par une ID ( IDEMPLOYECHEFAG ).
@@ -192,6 +192,48 @@ A part :
 
 ### Modifier infos clients
   
-  
+La classe ClientManagement est la classe principale concernant la modification info client.
+Elle prend en compte le fichier FXML concernant la modification des informations ( ClientManagercontroller ).
+Après avoir recupérer les informations de la fenêtre dans ClientManagement elle va modifier la base de données. Pour modifier effectuer la modification la fonction ClientManagement.modifierClient va s'effectuer.
+Elle regardera si le client que l'on cherche existe et si c'est le cas elle modifira les informations voulue.
+
+Cette fonctionnalité entrera en charge à chaque modification des informations clientèles
+
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéesModificationClients.png[alt: diagramme_mod_clients, title: Diagramme de classe des données]
+
+Le jaune correspond aux informations qui peuvent être modifiés. Quand aux informations qui sont lues, l'employé va devoir trouver le client à modifier dans la table client puis modifier les informations necessaires ( parmi les jaunes ).
+
+### Créer un nouveau client
+
+La classe ClientManagement est encore une fois la classe principale concernant la création client. Comme ' Modifier informations Clients ' elle prend en compte le fichier ClientManagerController ).
+Pour créer un nouveau client, la fonction ClientManagement.nouveauClient va s'effectuer. Elle devra déjà regarder que le client n'existe pas déjà et si ce n'est pas le cas elle en créera un nouveau.
+
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéesNvClients.png[alt: diagramme_Nv_Client, title: Diagramme de classe des données]
+
+Le jaune correspond aux objets modifié, la table Client sera aussi modifié en effet en ajoutant un objet à cette table ( le nouveau client ).
+
+### Consulter un compte
+
+La classe ComptesManagement est la classe pirncipale pour consulter un compte.
+Pour consulter un compte nous allons utiliser sa liaison avec le client.
+Nous pourrons acceder à tout les comptes d'un client ComptesManagement.getComptesDunClient qui renverra tous ses comptes.
+
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéesGlobaleConsulter.png[alt: diagramme_Consulter, title: Diagramme de classe des données]
+
+### Debiter un compte
+La classe OperationManagement est la classe pirncipale pour debiter un compte.
+La fonction mère du debit de compte est OperationManagement.enregistrerDebit
+
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéeDebit.png[alt: diagramme_Debit, title: Diagramme de classe des données]
+En rouge ce qui va être modifié/ en jaune ce qui va être lu
+
+### Rendre inactif un client
+
+Cette fonctionnalité n'est accessible qu'à un employé chef d'agence. il faut alors que le compte qui se connecte est les droits d'accès correspondant ( EMPLOYE.DROITSACCES), il va alors modifier la base de données du client correspondant ( ESTINACTIF ) avec modifierClient de la classe ClientsManagement
+
+image::Diagramme de classe/DiagrammeDeClasseDeDonnéesGlobalesInactif.png[alt: diagramme_Inactif, title: Diagramme de classe des données]
+En rouge ce qui va être modifié/ en jaune ce qui va être lu
+
+
   
   
