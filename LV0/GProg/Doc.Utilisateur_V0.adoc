@@ -27,9 +27,9 @@ Ce guide est destiné à tous les utilisateurs de l'application.
 
 Pour installer Daily Bank, suivez les étapes suivantes :
 
-Téléchargez le fichier d'installation depuis notre site web.
+Téléchargez le fichier d'installation depuis notre lien Drive.
 
-https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV0/Dev/Code/DailyBank_V0
+https://drive.google.com/file/d/1EGMZMgv_3ZpDmtCvUeYMyK6tRd0DNbXq/view?usp=share_link
 
 Double-cliquez sur le fichier téléchargé pour lancer l'installation.
 
