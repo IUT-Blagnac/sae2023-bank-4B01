@@ -1,8 +1,8 @@
-# Document Utilisateur
+# Document Utilisateur v1
 
 Equipe:
 
-* Robin Fligitter
+* Robin Fligitter -- Redacteur
 * Mathis Brefuel
 * Angelo Nichele
 * Maxime Planquès
@@ -14,13 +14,24 @@ Ce guide est destiné à tous les utilisateurs de l'application.
 
 ** Installation
 ** Configuration
-** Utilisation 
-  * Rechercher un client
-  * Modifier les informations clients
-  * Créer un nouveau client
-  * Consulter un compte
-  * Debiter un compte
-  * Rendre inactif un client
+** Gestion des clients
+    * Rechercher un client
+    * Modifier les informations clients
+    * Créer un nouveau client
+    * Rendre inactif un client
+    * Rendre inactif un client
+** Gestion des comptes
+    * Consulter un compte
+    * Créer un compte
+    * Debiter un compte
+    * Créditer un compte
+    * Virement de compte
+    * Cloturer un compte
+** Gestion des employés 
+    * Créer un employé
+    * Lire les employés
+    * Modifier les informations employés
+    * Supprimer un employé
 ** Support
 
 ## Installation
@@ -45,7 +56,8 @@ Avant d'utiliser Daily Bank, vous devez configurer votre compte. Voici les étap
 
 3- Connecter vous via l'identifiant et le mot de de passe qui vous a été attribué.
 
-## Utilisation
+## Gestion des Clients
+
 
 Une fois que vous êtes connecté , vous pouvez commencer à utiliser Daily Bank. Voici quelques fonctionnalités de l'application :
 
@@ -89,15 +101,27 @@ L'adresse n'a pas besoin d'être remplie.
 
 Cliquez sur AJOUTER.
 
+
+## Gestion des comptes
+
 ### Consulter un compte
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations
+
+### Créer un compte
+
+
+### Modifier un Compte
+
+### Cloturer un compte
+
+### Effectuer un virement de compte à compte
 
 ### Debiter un compte
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations --> Enregistrer Débit --> Choisir le type d'Opération --> choisir le montant .
 
-Faites attention au debit autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
+Faites attention au découvert autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
 
 ### Rendre inactif un client
 
@@ -106,6 +130,18 @@ Cette fonctionnalité n'est accessible qu'à un chef d'agence.
 Si vous êtes chef d'agence vous pourrez modifier le statut d'inactivité du client en modificant les informations clients.
 
 Si vous ne l'êtes pas prenez contact avec le chef de votre agence.
+
+## Gestion des Employés
+
+### Gestion des employés 
+
+### Créer un employé
+
+### Lire les employés
+
+### Modifier les employés
+
+### Supprimer un employé
 
 ## Support
 
