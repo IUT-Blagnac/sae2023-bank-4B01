@@ -105,8 +105,38 @@ Compléter et si on ne valide pas, ...
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_CB.3 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.4 ^|Sélectionner le bouton "Nouveau Client". ^|La page des informations sur le nouveau compte s’affiche. ^|La fenêtre s'ouvre ^|OK
+^|All_G_CB.4 ^|Sélectionner le bouton "Nouveau Compte". ^|La page des informations sur le nouveau compte s’affiche. ^|La fenêtre s'ouvre ^|OK
 ^|All_G_CB.5 ^|Sélectionner le bouton "Ajouter". ^|La page des gestions des comptes s’affiche. ^|Le nouveau compte est ajouté ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+|Modifier d'un compte
+>|Objectif 4+| Modifier un compte courant pour un client
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.6 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
+^|All_G_CB.7 ^|Sélectionner le bouton "Nouveau compte". ^|La page des informations sur le compte sélectionné s’affiche. ^|La fenêtre s'ouvre ^|OK
+^|All_G_CB.8 ^|Sélectionner le bouton "Modifier". ^|La page des gestions des comptes s’affiche. ^|Le compte sélectionné est modifié ^|OK
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-04
+>|Titre 4+|Clôturer un compte
+>|Objectif 4+| Clôturer le compte courant d'un client
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.6 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
+^|All_G_CB.7 ^|Sélectionner le bouton "Supprimer compte". ^|La page des gestions des comptes s'affiche sans le compte clôturer, mais il reste dans la BD. ^|La fenêtre s'ouvre ^|OK
+*
 
 |====
 
@@ -153,6 +183,26 @@ autorisé est de -100 euros.
 
 |====
 
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Virement compte à compte
+>|Objectif 4+| Effectuer un virement d'un compte à un autre
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_COP.7 ^|Cliquer sur le bouton "Virement". ^|La page du virement du compte s’affiche. ^| La fenêtre de la gestion du virement s'ouvre ^|OK
+^|All_G_COP.8  ^|Rentrer un numéro de compte dans le premier champ ("Débiteur"). ^|Le numéro de compte est bien rentré ^| Le numéro doit correspondre
+ ^|OK
+^|All_G_COP.9  ^|Rentrer un numéro de compte dans le premier champ ("Créditeur"). ^|Le numéro de compte est bien rentré ^| Le numéro doit correspondre
+^|OK
+^|All_G_COP.10  ^|Rentrer un montant dans le champ Montant. ^|Le nouveau solde du créditeur a augmenté celui du débiteur a baissé ^| Le montant doit prendre en compte le découvert du débiteur
+^|OK
+  
+ 
+|====
+
 
 
 
@@ -175,9 +225,52 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|C_G_C.1    ^|Sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné ... ^| ...
 
-5+|
-
-5+|Commentaire : REVOIR AVEC
- *clôturés*.|
 
 |====
+
+==== 2.2 Gestion des employés :
+
+|====
+
+>|Cas de test 4+|Test-02-02-01
+>|Titre 4+|Création d'un employé
+>|Objectif 4+| Vérification de la création d'un employé
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_E.1 ^|Cliquer sur le bouton "Nouveau employé". ^|La fenêtre de création des employés s'ouvre. ^| aucune ^|OK
+^|All_G_E.2 ^|Compléter les champs spécifiés et valider. ^|Un nouvel employé est créé. ^|aucune ^|OK
+
+ 
+|====
+
+|====
+
+>|Cas de test 4+|Test-02-02-02
+>|Titre 4+|Modification d'un employé
+>|Objectif 4+| Vérification de la modification d'un employé
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_E.1 ^|Cliquer sur le bouton "Modifier employé". ^|La fenêtre de modification des employés s'ouvre. ^| Ouverture de la fenêtre ^|OK
+^|All_G_E.2 ^|Compléter les champs spécifiés et valider. ^|L'employé selectionné est modifié. ^|aucune ^|OK
+
+ 
+|====
+
+|====
+
+>|Cas de test 4+|Test-02-02-03
+>|Titre 4+|Suppression d'un employé
+>|Objectif 4+| Vérification de la suppression d'un employé
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_E.1 ^|Cliquer sur le bouton "Supprimer employé". ^|La fenêtre de la liste des employés s'ouvre sans l'employé sélectionné. ^| aucune ^|OK
+ 
+|====
+
+
