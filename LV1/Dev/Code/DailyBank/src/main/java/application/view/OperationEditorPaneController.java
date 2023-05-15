@@ -1,6 +1,7 @@
-package application.view;
+﻿package application.view;
 
 import java.util.Locale;
+
 
 import application.DailyBankState;
 import application.tools.AlertUtilities;
@@ -19,6 +20,11 @@ import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * 
+ * Cette classe contrôle le fichier FXML de l'interface utilisateur pour ajouter des opérations.
+ *
+ */
 public class OperationEditorPaneController {
 
 	// Etat courant de l'application
@@ -32,6 +38,13 @@ public class OperationEditorPaneController {
 	private CompteCourant compteEdite;
 	private Operation operationResultat;
 
+	/**
+	 * 
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage
+	 * @param _dbstate
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
@@ -39,10 +52,25 @@ public class OperationEditorPaneController {
 		this.configure();
 	}
 
+	/**
+	 * 
+	 * Configure le contrôleur
+	 * 
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * 
+	 * Affiche la boîte de dialogue pour ajouter une opération
+	 * 
+	 * @param cpte
+	 * @param mode
+	 * 
+	 * @return l'opération ajoutée ou null si l'utilisateur a annulé l'opération
+	 * 
+	 */
 	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
@@ -64,11 +92,23 @@ public class OperationEditorPaneController {
 			this.cbTypeOpe.setItems(listTypesOpesPossibles);
 			this.cbTypeOpe.getSelectionModel().select(0);
 			break;
+			
 		case CREDIT:
-			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
-					AlertType.ERROR);
-			return null;
-		// break;
+			
+			String infoCre = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoCre);
+
+			this.btnOk.setText("Effectuer Crédit");
+			this.btnCancel.setText("Annuler Crédit");
+
+			ObservableList<String> ListTypesOpesPossibles = FXCollections.observableArrayList();
+			ListTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_CREDIT_GUICHET);
+
+			this.cbTypeOpe.setItems(ListTypesOpesPossibles);
+			this.cbTypeOpe.getSelectionModel().select(0);
+			break;
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences
@@ -105,12 +145,24 @@ public class OperationEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * 
+	 * Annule l'opération en cours d'ajout et ferme la boîte de dialogue.
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Ajoute l'opération en cours d'ajout et ferme la boîte de dialogue. 
+	 * Pour les débits, vérifie que le montant est valide et ne dépasse pas le découvert autorisé du compte. 
+	 * Si le montant n'est pas valide, un message d'erreur est affiché et l'opération n'est pas ajoutée.
+	 * 
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {
@@ -154,9 +206,31 @@ public class OperationEditorPaneController {
 			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			this.primaryStage.close();
 			break;
+			
 		case CREDIT:
-			// ce genre d'operation n'est pas encore géré
-			this.operationResultat = null;
+			
+			double montantCre;
+
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+			String infoCre = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoCre);
+
+			try {
+				montantCre = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montantCre <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+				return;
+			}
+			String TypeOp = this.cbTypeOpe.getValue();
+			this.operationResultat = new Operation(-1, montantCre, null, null, this.compteEdite.idNumCli, TypeOp);
 			this.primaryStage.close();
 			break;
 		}

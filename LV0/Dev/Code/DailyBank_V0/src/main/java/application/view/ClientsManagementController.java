@@ -2,6 +2,7 @@ package application.view;
 
 import java.util.ArrayList;
 
+
 import application.DailyBankState;
 import application.control.ClientsManagement;
 import javafx.collections.FXCollections;
@@ -15,6 +16,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 
+/**
+ * 
+ * Contrôleur de la fenêtre de gestion des clients. 
+ *
+ */
 public class ClientsManagementController {
 
 	// Etat courant de l'application
@@ -29,6 +35,15 @@ public class ClientsManagementController {
 	// Données de la fenêtre
 	private ObservableList<Client> oListClients;
 
+	/**
+	 * 
+	 * Initialise les paramètres de la fenêtre (contenant de la scène, contrôleur du dialogue et état courant de l'application).
+	 * 
+	 * @param _containingStage la fenêtre physique contenant la scène associée à ce contrôleur
+	 * @param _cm le contrôleur du dialogue associé à cette fenêtre
+	 * @param _dbstate l'état courant de l'application
+	 * 
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, ClientsManagement _cm, DailyBankState _dbstate) {
 		this.cmDialogController = _cm;
@@ -37,6 +52,11 @@ public class ClientsManagementController {
 		this.configure();
 	}
 
+	/**
+	 * 
+	 * Configure les éléments de la fenêtre, enregistre les listeners et configure l'état des boutons.
+	 * 
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -48,10 +68,24 @@ public class ClientsManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * 
+	 * Affiche la fenêtre en mode modal.
+	 * 
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
 
+	/**
+	 * 
+	 * Gère la fermeture de la fenêtre.
+	 * 
+	 * @param e l'événement de fermeture de la fenêtre
+	 * 
+	 * @return null
+	 * 
+	 */
 	// Gestion du stage
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
@@ -76,11 +110,22 @@ public class ClientsManagementController {
 	@FXML
 	private Button btnComptesClient;
 
+	/**
+	 * 
+	 * Annule l'action en cours et ferme la fenêtre.
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Recherche les clients correspondant aux critères de recherche saisis dans la fenêtre, 
+	 * et les affiche dans la liste des clients.
+	 * 
+	 */
 	@FXML
 	private void doRechercher() {
 		int numCompte;
@@ -124,6 +169,11 @@ public class ClientsManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * 
+	 * Gère l'affichage des comptes d'un client sélectionné dans la liste des clients
+	 * 
+	 */
 	@FXML
 	private void doComptesClient() {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
@@ -133,6 +183,11 @@ public class ClientsManagementController {
 		}
 	}
 
+	/**
+	 * 
+	 * Modifie les informations d'un client sélectionné dans la liste des clients
+	 * 
+	 */
 	@FXML
 	private void doModifierClient() {
 
@@ -146,10 +201,20 @@ public class ClientsManagementController {
 		}
 	}
 
+	/**
+	 * 
+	 * Désactive un client sélectionné dans la liste des clients.
+	 * 
+	 */
 	@FXML
 	private void doDesactiverClient() {
 	}
 
+	/**
+	 * 
+	 * Ajoute un nouveau client à la liste des clients.
+	 * 
+	 */
 	@FXML
 	private void doNouveauClient() {
 		Client client;
@@ -159,6 +224,11 @@ public class ClientsManagementController {
 		}
 	}
 
+	/**
+	 * 
+	 * Valide l'état des composants de la fenêtre et active/désactive les boutons en conséquence
+	 * 
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnDesactClient.setDisable(true);
@@ -166,9 +236,11 @@ public class ClientsManagementController {
 		if (selectedIndice >= 0) {
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
+			this.btnDesactClient.setDisable(false);
 		} else {
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
+			this.btnDesactClient.setDisable(true);
 		}
 	}
 }

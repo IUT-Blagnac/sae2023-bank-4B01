@@ -13,6 +13,13 @@ import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * 
+ * Cette classe de contrôle gère l'interface graphique de l'éditeur d'opérations. 
+ * Elle permet d'afficher la fenêtre d'éditeur d'opérations, de récupérer l'opération créée par l'utilisateur 
+ * et de la retourner à l'appelant.
+ *
+ */
 public class OperationEditorPane {
 
 	private Stage primaryStage;
@@ -44,6 +51,16 @@ public class OperationEditorPane {
 		}
 	}
 
+	/**
+	 * 
+	 * Cette méthode permet d'afficher la fenêtre d'éditeur d'opérations et de récupérer l'opération créée par l'utilisateur.
+	 * 
+	 * @param cpte le compte courant sur lequel créer l'opération
+	 * @param cm la catégorie de l'opération à créer
+	 * 
+	 * @return l'opération créée par l'utilisateur
+	 * 
+	 */
 	public Operation doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm) {
 		return this.oepcViewController.displayDialog(cpte, cm);
 	}

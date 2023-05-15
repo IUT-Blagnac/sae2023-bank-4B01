@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.AlertUtilities;
@@ -25,6 +26,14 @@ import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
+/**
+ * 
+ * Cette classe est responsable de la gestion de la fenêtre de gestion des comptes d'un client. 
+ * Elle permet d'afficher la liste des comptes d'un client, 
+ * de créer un nouveau compte et 
+ * de gérer les opérations d'un compte sélectionné.
+ *
+ */
 public class ComptesManagement {
 
 	private Stage primaryStage;
@@ -32,6 +41,15 @@ public class ComptesManagement {
 	private DailyBankState dailyBankState;
 	private Client clientDesComptes;
 
+	/**
+	 * 
+	 * Constructeur de la classe ComptesManagement.
+	 * 
+	 * @param _parentStage Le stage parent de la fenêtre de gestion des comptes.
+	 * @param _dbstate Le DailyBankState de l'application.
+	 * @param client Le client dont on souhaite afficher les comptes.
+	 * 
+	 */
 	public ComptesManagement(Stage _parentStage, DailyBankState _dbstate, Client client) {
 
 		this.clientDesComptes = client;
@@ -59,17 +77,36 @@ public class ComptesManagement {
 		}
 	}
 
+	/**
+	 * 
+	 * Affiche la fenêtre de gestion des comptes
+	 * 
+	 */
 	public void doComptesManagementDialog() {
 		this.cmcViewController.displayDialog();
 	}
 	
 
+	/**
+	 * 
+	 * Ouvre la fenêtre de gestion des opérations pour un compte donné.
+	 * 
+	 * @param cpt Le compte dont on souhaite gérer les opérations.
+	 * 
+	 */
 	public void gererOperationsDUnCompte(CompteCourant cpt) {
 		OperationsManagement om = new OperationsManagement(this.primaryStage, this.dailyBankState,
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
 
+	/**
+	 * 
+	 * Ouvre la fenêtre d'édition d'un nouveau compte et l'ajoute à la liste des comptes du client.
+	 * 
+	 * @return Le compte créé, ou null si l'utilisateur annule la création
+	 * 
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
@@ -96,6 +133,13 @@ public class ComptesManagement {
 		return compte;
 	}
 
+	/**
+	 * 
+	 * Récupère la liste des comptes d'un client depuis la base de données.
+	 * 
+	 * @return La liste des comptes du client, ou une liste vide en cas d'erreur.
+	 * 
+	 */
 	public ArrayList<CompteCourant> getComptesDunClient() {
 		ArrayList<CompteCourant> listeCpt = new ArrayList<>();
 

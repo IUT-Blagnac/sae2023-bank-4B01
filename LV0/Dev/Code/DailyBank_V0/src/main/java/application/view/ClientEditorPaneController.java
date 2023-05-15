@@ -21,6 +21,11 @@ import model.orm.exception.ApplicationException;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
 
+/**
+ * 
+ * Contrôleur pour l'interface utilisateur d'édition de clients.
+ *
+ */
 public class ClientEditorPaneController {
 
 	// Etat courant de l'application
@@ -37,16 +42,39 @@ public class ClientEditorPaneController {
 
 	// Manipulation de la fenêtre
 
+	/**
+	 * 
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage Fenêtre physique contenant la scène contrôlée
+	 * @param _dbstate Fenêtre physique contenant la scène contrôlée
+	 * 
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * 
+	 * Configure la fenêtre principale.
+	 * 
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * 
+	 * Affiche la boîte de dialogue pour la création, la modification ou l'affichage d'un client.
+	 * 
+	 * @param client Le client à éditer
+	 * @param mode Mode d'édition
+	 * 
+	 * @return Le client résultant de l'édition
+	 * 
+	 */
 	public Client displayDialog(Client client, EditionMode mode) {
 
 		this.editionMode = mode;
@@ -130,7 +158,14 @@ public class ClientEditorPaneController {
 		return this.clientResultat;
 	}
 
-	// Gestion du stage
+	
+	/**
+	 * 
+	 * Gestionnaire d'événement pour la fermeture de la fenêtre.
+	 * 
+	 * @param e Evénement de fermeture de la fenêtre.
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -164,12 +199,22 @@ public class ClientEditorPaneController {
 	@FXML
 	private Button butCancel;
 
+	/**
+	 * 
+	 * Annulation de l'édition du client
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.clientResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Ajouter, modifier ou supprimer le client 
+	 * 
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -193,6 +238,12 @@ public class ClientEditorPaneController {
 
 	}
 
+	/**
+	 * 
+	 * Différent test pour voir si les différentes informations du client sont correctes
+	 * 
+	 * @return vrai ou faux si la saisie est valide ou non
+	 */
 	private boolean isSaisieValide() {
 		this.clientEdite.nom = this.txtNom.getText().trim();
 		this.clientEdite.prenom = this.txtPrenom.getText().trim();

@@ -1,6 +1,7 @@
-package application.view;
+﻿package application.view;
 
 import java.util.ArrayList;
+
 import java.util.Locale;
 
 import application.DailyBankState;
@@ -19,6 +20,11 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * 
+ * Cette classe représente le contrôleur de la vue OperationsManagement
+ *
+ */
 public class OperationsManagementController {
 
 	// Etat courant de l'application
@@ -35,6 +41,16 @@ public class OperationsManagementController {
 	private CompteCourant compteConcerne;
 	private ObservableList<Operation> oListOperations;
 
+	/**
+	 * 
+	 * Permet d'initialiser le contexte de la fenêtre d'opérations bancaires
+	 * 
+	 * @param _containingStage
+	 * @param _om
+	 * @param _dbstate
+	 * @param client
+	 * @param compte
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, OperationsManagement _om, DailyBankState _dbstate, Client client,
 			CompteCourant compte) {
@@ -46,6 +62,9 @@ public class OperationsManagementController {
 		this.configure();
 	}
 
+	/**
+     * Configure les éléments de la fenêtre contrôlée par ce contrôleur.
+     */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -56,6 +75,11 @@ public class OperationsManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * 
+	 * Affiche la fenêtre d'opérations bancaires et attend que l'utilisateur la ferme
+	 * 
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
@@ -80,11 +104,17 @@ public class OperationsManagementController {
 	@FXML
 	private Button btnCredit;
 
+	/**
+     * Gère l'événement de clic sur le bouton de fermeture de la fenêtre.
+     */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
 
+	/**
+     * Gère l'événement de clic sur le bouton de débit.
+     */
 	@FXML
 	private void doDebit() {
 
@@ -95,20 +125,38 @@ public class OperationsManagementController {
 		}
 	}
 
+	/**
+     * Gère l'événement de clic sur le bouton de crédit.
+     */
 	@FXML
 	private void doCredit() {
+		
+		Operation op = this.omDialogController.enregistrerCredit();
+		if (op != null) {
+			this.updateInfoCompteClient();
+			this.validateComponentState();
+		}
 	}
 
+	/**
+     * Gère l'événement de clic sur le bouton autre.
+     */
 	@FXML
 	private void doAutre() {
 	}
 
+	/**
+     * Valide l'état des composants de la fenêtre.
+     */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnCredit.setDisable(true);
 		this.btnDebit.setDisable(false);
 	}
 
+	 /**
+     * Met à jour les informations affichées sur la fenêtre.
+     */
 	private void updateInfoCompteClient() {
 
 		PairsOfValue<CompteCourant, ArrayList<Operation>> opesEtCompte;

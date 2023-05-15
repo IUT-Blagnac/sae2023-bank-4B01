@@ -1,6 +1,7 @@
 package application.control;
 
 import application.DailyBankApp;
+
 import application.DailyBankState;
 import application.tools.StageManagement;
 import application.view.ExceptionDialogController;
@@ -11,11 +12,26 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.orm.exception.ApplicationException;
 
+/**
+ * 
+ * Cette classe permet d'afficher une boîte de dialogue en cas d'erreur lors de l'exécution de l'application.
+ * Elle est appelée depuis une exception attrapée dans l'application.
+ *
+ */
 public class ExceptionDialog {
 
 	private Stage primaryStage;
 	private ExceptionDialogController edcViewController;
 
+	/**
+	 * 
+	 * Constructeur de la classe ExceptionDialog
+	 * 
+	 * @param _parentStage la fenêtre parente de la boîte de dialogue
+	 * @param _dbstate l'état actuel de l'application
+	 * @param ae l'exception à afficher dans la boîte de dialogue
+	 * 
+	 */
 	public ExceptionDialog(Stage _parentStage, DailyBankState _dbstate, ApplicationException ae) {
 
 		try {
@@ -41,6 +57,11 @@ public class ExceptionDialog {
 		}
 	}
 
+	/**
+	 * 
+	 * Affiche la boîte de dialogue 
+	 * 
+	 */
 	public void doExceptionDialog() {
 		this.edcViewController.displayDialog();
 	}

@@ -2,6 +2,7 @@ package application.view;
 
 import java.util.Locale;
 
+
 import application.DailyBankState;
 import application.tools.AlertUtilities;
 import application.tools.CategorieOperation;
@@ -19,6 +20,11 @@ import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * 
+ * Cette classe contrôle le fichier FXML de l'interface utilisateur pour ajouter des opérations.
+ *
+ */
 public class OperationEditorPaneController {
 
 	// Etat courant de l'application
@@ -32,6 +38,13 @@ public class OperationEditorPaneController {
 	private CompteCourant compteEdite;
 	private Operation operationResultat;
 
+	/**
+	 * 
+	 * Initialise le contexte du contrôleur.
+	 * 
+	 * @param _containingStage
+	 * @param _dbstate
+	 */
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
@@ -39,10 +52,25 @@ public class OperationEditorPaneController {
 		this.configure();
 	}
 
+	/**
+	 * 
+	 * Configure le contrôleur
+	 * 
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * 
+	 * Affiche la boîte de dialogue pour ajouter une opération
+	 * 
+	 * @param cpte
+	 * @param mode
+	 * 
+	 * @return l'opération ajoutée ou null si l'utilisateur a annulé l'opération
+	 * 
+	 */
 	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
@@ -105,12 +133,24 @@ public class OperationEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * 
+	 * Annule l'opération en cours d'ajout et ferme la boîte de dialogue.
+	 * 
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * 
+	 * Ajoute l'opération en cours d'ajout et ferme la boîte de dialogue. 
+	 * Pour les débits, vérifie que le montant est valide et ne dépasse pas le découvert autorisé du compte. 
+	 * Si le montant n'est pas valide, un message d'erreur est affiché et l'opération n'est pas ajoutée.
+	 * 
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {
