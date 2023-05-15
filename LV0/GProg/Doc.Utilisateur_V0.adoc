@@ -11,10 +11,16 @@ Daily Bank est une application de gestion de finances. Elle permet de gérer tou
 Ce guide est destiné à tous les utilisateurs de l'application.
 
 Sommaire:
+
 ** Installation
 ** Configuration
 ** Utilisation 
-  * 
+  * Rechercher un client
+  * Modifier les informations clients
+  * Créer un nouveau client
+  * Consulter un compte
+  * Debiter un compte
+  * Rendre inactif un client
 ** Support
 
 ## Installation
@@ -33,12 +39,11 @@ Suivez les instructions à l'écran pour terminer l'installation.
 
 Avant d'utiliser Daily Bank, vous devez configurer votre compte. Voici les étapes à suivre :
 
-1.Veuillez être sûr qu'un compte avec un identifiant et un mot de passe vous a été attribué .
---Si ce n'est pas le cas veuillez contacter votre chef d'agence ou les administrateurs de l'application.
+1- Veuillez être sûr qu'un compte avec un identifiant et un mot de passe vous a été attribué .(Si ce n'est pas le cas veuillez contacter votre chef d'agence ou les administrateurs de l'application.)
 
-2. Double cliquer sur l'application pour la lancer.
+2- Double cliquer sur l'application pour la lancer.
 
-3. Connecter vous via l'identifiant et le mot de de passe qui vous a été attribué.
+3- Connecter vous via l'identifiant et le mot de de passe qui vous a été attribué.
 
 ## Utilisation
 
