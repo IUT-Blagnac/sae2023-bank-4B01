@@ -60,7 +60,7 @@ reprendre les contraintes technique / orga.
 | 15/05   | Doc User V0 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV0/GProg/Doc.Utilisateur_V0.adoc |
 | 16/05  | CDC V2final|                                     |  
 |         | Gantt V1 Réalisé |     https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Realise_Projet-Bank_4B1.pdf                          |     
-|         | Gantt V2 Prevu|         |     
+|         | Gantt V2 Prevu| https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Diagramme_GANTT_V2_ProjetBank_4B1.pdf        |     
 |         | Doc. Tec. V1 |        |    
 |         | Doc User V1    |        |
 |         | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | 
