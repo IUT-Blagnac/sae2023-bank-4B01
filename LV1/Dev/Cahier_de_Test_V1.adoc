@@ -1,12 +1,12 @@
-= Cahier De Recette - DailyBankApp
+= Cahier De Recette V1- DailyBankApp
 :toc:
 :toc-title: Sommaire
 
 :Entreprise: DailyBank
 :Equipe:  
 
-.Créé par : Mathis Brefuel
-Créé pour : Tester les fonctionnalités de l'application
+.Créé par : Mathis Brefuel / Angelo Nichele
+Créé pour : Tester les fonctionnalités de l'application V1
 
  
 
