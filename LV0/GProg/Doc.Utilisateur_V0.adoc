@@ -92,11 +92,15 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations --> Enregistrer Débit --> Choisir le type d'Opération --> choisir le montant .
 
-Faites attention à
+Faites attention au debit autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
 
 ### Rendre inactif un client
 
 Cette fonctionnalité n'est accessible qu'à un chef d'agence.
+
+Si vous êtes chef d'agence vous pourrez modifier le statut d'inactivité du client en modificant les informations clients.
+
+Si vous ne l'êtes pas prenez contact avec le chef de votre agence.
 
 ## Support
 
