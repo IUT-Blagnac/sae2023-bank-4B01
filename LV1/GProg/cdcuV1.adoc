@@ -71,7 +71,7 @@ Ce projet comporte des contraintes tant dans l'organisation de l'équipe que tec
 ** Respecter les délais de chacune des tâches
 ** Prévoir des retards sur certaines tâches et réussir à s'adapter
 ** Communiquer sur l'avancement et les éventuels problèmes rencontrés (GitHub + Discord)
-** Respecter les délais de rendu pour chaque étape
+** Respecter le délai de rendu du projet, date butoir le 26/05/2023
 
 
 * Techniques
