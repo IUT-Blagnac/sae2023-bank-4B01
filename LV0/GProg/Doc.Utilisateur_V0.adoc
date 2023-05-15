@@ -10,7 +10,7 @@ Equipe:
 Daily Bank est une application de gestion de finances. Elle permet de gérer tous les services financiers des agences bancaires. 
 Ce guide est destiné à tous les utilisateurs de l'application.
 
-Sommaire:
+## Sommaire:
 
 ** Installation
 ** Configuration
