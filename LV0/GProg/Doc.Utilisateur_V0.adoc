@@ -97,7 +97,7 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations --> Enregistrer Débit --> Choisir le type d'Opération --> choisir le montant .
 
-Faites attention au debit autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
+Faites attention au découvert autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
 
 ### Rendre inactif un client
 
