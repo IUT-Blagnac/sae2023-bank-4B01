@@ -1,5 +1,7 @@
 package application.control;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import application.DailyBankApp;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.Access_BD_CompteCourant;
+import model.orm.LogToDatabase;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.Order;
@@ -59,6 +62,7 @@ public class ComptesManagement {
 	public void doComptesManagementDialog() {
 		this.cmcViewController.displayDialog();
 	}
+	
 
 	public void gererOperationsDUnCompte(CompteCourant cpt) {
 		OperationsManagement om = new OperationsManagement(this.primaryStage, this.dailyBankState,
@@ -71,20 +75,15 @@ public class ComptesManagement {
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
-			try {
-				// Temporaire jusqu'à implémentation
-				compte = null;
-				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
-						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
-
+			try {				
+				Access_BD_CompteCourant acces = new Access_BD_CompteCourant();
+				acces.creerCompte(compte);
+				
 				// if JAMAIS vrai
 				// existe pour compiler les catchs dessous
-				if (Math.random() < -1) {
-					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
-				}
+//				if (Math.random() < -1) {
+//					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
+//				}
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
