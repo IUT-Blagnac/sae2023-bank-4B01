@@ -55,15 +55,15 @@ affinez l'analyse de l'existant par rapport à ce qui vous a été fourni en ent
 analyse du besoin: détaillez les UC V0, utilisateurs logiques, idem pour la V1, en priorisant les devs planifiés.
 ajouter les dates de livraison dans contraintes orga.
 reprendre les contraintes technique / orga.     
-|         |Gantt V1 Prévu|        https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Projet-DailyBank_4B1.pdf                          |ok, à présenter sur une seule page
+|  12/05       |Gantt V1 Prévu|        https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Projet-DailyBank_4B1.pdf                          |ok, à présenter sur une seule page
 | 15/05   | Doc Tech V0 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV0/Dev/Doc.Tech_V0.adoc |
 | 15/05   | Doc User V0 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV0/GProg/Doc.Utilisateur_V0.adoc |
 | 16/05  | CDC V2final|  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/CDCU_V2.adoc                                   |  
-|         | Gantt V1 Réalisé |     https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Realise_Projet-Bank_4B1.pdf                          |     
-|         | Gantt V2 Prevu| https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Diagramme_GANTT_V2_ProjetBank_4B1.pdf        |     
-| 15/05   | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Doc.Tech_V1.adoc       |    
+|  16/05       | Gantt V1 Réalisé |     https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Realise_Projet-Bank_4B1.pdf                          |     
+|  16/05       | Gantt V2 Prevu| https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Diagramme_GANTT_V2_ProjetBank_4B1.pdf        |     
+| 17/05   | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Doc.Tech_V1.adoc       |    
 | 16/05    | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Doc.Utilisateur_V1.adoc     |
-|         | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | 
+| 17/05        | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | 
 |         | Suivi projet V1|   | 
 | 26/05   | Gantt V2  réalisé    |       | 
 |         | Doc. Util. V2 |         |         
