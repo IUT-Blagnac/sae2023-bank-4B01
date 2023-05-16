@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 
 import application.DailyBankState;
+import application.control.CompteEditorPane;
 import application.control.ComptesManagement;
+import application.tools.EditionMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
@@ -136,7 +140,9 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			this.cmDialogController.gererOperationsDUnCompte(cpt);
+			if(cpt.estCloture.equals("N")){
+				this.cmDialogController.gererOperationsDUnCompte(cpt);
+			}
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -149,17 +155,22 @@ public class ComptesManagementController {
 	 */
 	@FXML
 	private void doModifierCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cptMod = this.oListCompteCourant.get(selectedIndice);
+			CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
+			CompteCourant result = cep.doCompteEditorDialog(this.clientDesComptes, cptMod, EditionMode.MODIFICATION);
+			if (result != null && !result.equals(cptMod) && result.idNumCompte == cptMod.idNumCompte) {
+				this.cmDialogController.modifierCompte(cptMod);
+				this.loadList();
+			}
+		}
+        this.loadList();
+        this.validateComponentState();
 	}
+	
 
-	/**
-	 * 
-	 * Supprime le compte sélectionné.
-	 * 
-	 */
-	@FXML
-	private void doSupprimerCompte() {
-	}
-
+	
 	/**
 	 * 
 	 * Cree un nouveau comptz
@@ -173,7 +184,32 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
+	
+	
+	/**
+     * 
+     * Supprime le compte sélectionné.
+     * 
+     */
+    @FXML
+    private void doSupprimerCompte() {
+        int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+        if (selectedIndice >= 0) {
+            CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+            if(cpt.solde == 0) {
+                this.cmDialogController.cloturerCompte(cpt);
+            }
+            else {
+            	Alert alerteCptNonVide = new Alert(AlertType.WARNING);
+            	alerteCptNonVide.setHeaderText("Le solde du compte n'est pas vide");
+            	alerteCptNonVide.show();
+            }
+        }
+        this.loadList();
+        this.validateComponentState();
+    }
 
+    
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -182,9 +218,8 @@ public class ComptesManagementController {
 	}
 
 	private void validateComponentState() {
-		// Non implémenté => désactivé
-		this.btnModifierCompte.setDisable(true);
-		this.btnSupprCompte.setDisable(true);
+		this.btnModifierCompte.setDisable(false);
+		this.btnSupprCompte.setDisable(false);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {

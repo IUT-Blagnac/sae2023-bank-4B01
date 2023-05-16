@@ -4,6 +4,7 @@ import java.util.Locale;
 
 
 import application.DailyBankState;
+import application.control.ExceptionDialog;
 import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
@@ -17,6 +18,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.orm.exception.ApplicationException;
+import model.orm.exception.Order;
+import model.orm.exception.Table;
 
 /**
  * 
@@ -74,7 +78,7 @@ public class CompteEditorPaneController {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
 		if (cpte == null) {
-			this.compteEdite = new CompteCourant(0, 200, 0, "N", this.clientDuCompte.idNumCli);
+			this.compteEdite = new CompteCourant(0, -200, 0, "N", this.clientDuCompte.idNumCli);
 		} else {
 			this.compteEdite = new CompteCourant(cpte);
 		}
@@ -92,15 +96,24 @@ public class CompteEditorPaneController {
 			this.btnCancel.setText("Annuler");
 			break;
 		case MODIFICATION:
-			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
-					AlertType.ERROR);
-			return null;
-		// break;
+			this.txtIdclient.setDisable(true);
+			this.txtIdAgence.setDisable(true);
+			this.txtIdNumCompte.setDisable(true);
+			this.txtDecAutorise.setDisable(false);
+			this.txtSolde.setDisable(true);
+			
+			this.lblMessage.setText("Informations Compte");
+			this.btnOk.setText("Modifier");
+			this.btnCancel.setText("Annuler");
+			this.compteResultat = this.compteEdite;
+			break;
 		case SUPPRESSION:
-			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Suppression de compte n'est pas implémenté",
-					null, AlertType.ERROR);
-			return null;
-		// break;
+			ApplicationException ae = new ApplicationException(Table.CompteCourant, Order.UPDATE, "SUPPRESSION DE COMPTE NON FONCTIONNELLE",
+					null);
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+			ed.doExceptionDialog();
+
+			break;
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences

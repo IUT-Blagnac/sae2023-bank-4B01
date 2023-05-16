@@ -11,12 +11,14 @@ import application.tools.StageManagement;
 import application.view.ComptesManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
@@ -108,20 +110,10 @@ public class ComptesManagement {
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
-			try {
-				// Temporaire jusqu'à implémentation
-				compte = null;
-				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
-						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
-
-				// if JAMAIS vrai
-				// existe pour compiler les catchs dessous
-				if (Math.random() < -1) {
-					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
-				}
+			try {				
+				Access_BD_CompteCourant acces = new Access_BD_CompteCourant();
+				acces.creerCompte(compte);
+				
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
@@ -133,6 +125,33 @@ public class ComptesManagement {
 		}
 		return compte;
 	}
+	
+	
+	
+	/**
+	 * 
+	 * Ouvre la fenêtre d'édition d'un compteCourant en mode modification
+	 * 
+	 * @param c le compteCourant à modifier
+	 * @return le compteCourant modifié ou null si l'opération a échoué
+	 * 
+	 */
+	public void modifierCompte(CompteCourant c) {
+		try {
+			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+			ac.updateCompteCourant(c);
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+			ed.doExceptionDialog();
+		}
+	}
+	
+	
+	
 
 	/**
 	 * 
@@ -159,4 +178,27 @@ public class ComptesManagement {
 		}
 		return listeCpt;
 	}
+	
+	
+	
+	/**
+     * 
+     * Cloture le compte sélectionné
+     * 
+     */
+    public void cloturerCompte(CompteCourant compte) {        
+        if (compte != null) {
+            try {                
+                Access_BD_CompteCourant acces = new Access_BD_CompteCourant();
+                acces.cloturerCompte(compte);
+            } catch (DatabaseConnexionException e) {
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.primaryStage.close();
+            } catch (ApplicationException ae) {
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+            }
+        }
+    }
 }
