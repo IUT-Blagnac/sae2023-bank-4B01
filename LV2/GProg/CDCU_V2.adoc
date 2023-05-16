@@ -72,6 +72,23 @@ image::useCaseV1.drawio.svg[]
 === 3. Analyse des besoins V2
 
 
+
+
+La version 2 de l'application DailyBank permetttra au *gichetier* de réaliser toutes ces actions :
+
+* Générer un relevé mensuel d'un compte en PDF
+* Gérer les prélèvements automatiques (CRUD)
+* Modifier le plafond d'un compte
+
+Le *chef d'Agence* aura également la possibilité de :
+
+* Simuler un emprunt
+* Simuler une assurance d'emprunt
+* Effectuer un débit exceptionnel
+
+
+
+
 == IV. Analyse des contraintes
 
 Ce projet comporte des contraintes tant dans l'organisation de l'équipe que techniques :
