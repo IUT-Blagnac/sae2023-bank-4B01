@@ -1,14 +1,14 @@
-= Cahier des charges utilisateurs V2 : Projet DailyBank
-
+= Cahier De Recette V1- DailyBankApp
 :toc:
 :toc-title: Sommaire
 
 :Entreprise: DailyBank
 :Equipe:  
 
-.Groupe 4B01, Auteur : Maxime Planquès, publié le 16/05/2023
-Créé pour : Détailler la version 2 du projet DailyBank
+.Créé par : Mathis Brefuel / Angelo Nichele
+Créé pour : Tester les fonctionnalités de l'application V1
 
+ 
 
 
 
@@ -41,4 +41,19 @@ Ordinateur sous Windows ou OS équivalent.
 == III. Cas de test :
 === 1. Fonctionnalités des guichetiers :
 ==== 1.1 Gestion des clients :
+
+
+
+==== 1.2 Gestion des comptes bancaires :
+
+
+
+==== 1.3 Gestion des opérations :
+
+
+=== 2. Fonctionnalités des chefs d'agence :
+[.text-justify]
+Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, ainsi que d'autres qui leur sont réservées.
+
+==== 2.1 Gestion des clients :
 
