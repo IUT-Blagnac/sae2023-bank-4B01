@@ -87,6 +87,8 @@ Le *chef d'Agence* aura également la possibilité de :
 * Effectuer un débit exceptionnel
 
 
+image::useCaseV2.drawio.svg[]
+
 
 
 == IV. Analyse des contraintes
