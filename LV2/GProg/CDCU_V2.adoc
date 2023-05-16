@@ -1,59 +1,54 @@
-= Cahier De Recette V1- DailyBankApp
+= Cahier des charges utilisateurs V2 : Projet DailyBank
 :toc:
 :toc-title: Sommaire
 
 :Entreprise: DailyBank
 :Equipe:  
 
-.Créé par : Mathis Brefuel / Angelo Nichele
-Créé pour : Tester les fonctionnalités de l'application V1
+.Groupe 4B01, Auteur : Maxime Planquès, publié le 16/05/2023
+Créé pour : Détailler la version 2 du projet DailyBank
 
  
 
 
 
-== I. Introduction
-=== 1. Objet :
+== I. Présentation du sujet
+=== 1. Contexte
 [.text-justify]
-Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour tester les différentes fonctionnalités de cette dernière.
+----
+La banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes
+clients pour remplacer plusieurs outils obsolètes. Ce développement s’inscrit dans le cadre 
+de la restructuration de ses services bancaires et l’application sera déployée dans les 100
+agences que compte son réseau. Vous travaillerez à partir d’une application existante 
+« Daily Bank » qu’il faudra adapter aux nouveaux besoins de la banque.
+----
 
-
-== II. Pre-Requis :
+=== 2. Objectif
 [.text-justify]
-L'exécution des tests spécifiés au chapitre suivant requiert :
+----
+L’application doit permettre de gérer des comptes bancaires de dépôt pour des clients 
+préalablement créés. Elle devra permettre de débiter, créditer un compte soit par virement 
+c’est à dire un échange d’argent entre deux comptes distincts mais domiciliés dans le réseau 
+bancaire, soit par une personne physique se présentant devant un guichet.
+----
 
-* Une base de données installée (référence document technique).
-* L'environnement de test tel que spécifié dans la partie "Environnement de test" de ce document.
-* Les fiches de tests. *À vérifier*
 
-
-=== 1. Éléments à tester :
+== II. Analyse de l'existant
 [.text-justify]
-Les éléments testés concernent les Use-Cases spécifiés dans la *documentation technique*.
-
-
-=== 2. Environnement de test :
-[.text-justify]
-Ordinateur sous Windows ou OS équivalent.
 
 
 
-== III. Cas de test :
-=== 1. Fonctionnalités des guichetiers :
-==== 1.1 Gestion des clients :
+
+== III. Analyse des besoins
+=== 1. Analyse des besoins V0
 
 
 
-==== 1.2 Gestion des comptes bancaires :
+=== 2. Analyse des besoins V1
 
 
 
-==== 1.3 Gestion des opérations :
+=== 3. Analyse des besoins V2
 
 
-=== 2. Fonctionnalités des chefs d'agence :
-[.text-justify]
-Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, ainsi que d'autres qui leur sont réservées.
-
-==== 2.1 Gestion des clients :
-
+== IV. Analyse des contraintes
