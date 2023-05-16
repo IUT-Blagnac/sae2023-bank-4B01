@@ -52,3 +52,6 @@ bancaire, soit par une personne physique se présentant devant un guichet.
 
 
 == IV. Analyse des contraintes
+=== 1. Contraintes Organisationnelles
+
+=== 2. Contraintes Techniques
