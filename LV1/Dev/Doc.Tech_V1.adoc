@@ -182,24 +182,23 @@ A part :
 image::InkedUSE_CASE_CréerCompte.jpg[][alt=Use Case créer compte courant, title=Use Case de créer compte]
 
  
-Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de créer un nouveau compte courant pour un client de l'agence. 
+Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de créer un nouveau compte courant pour un client de l'agence. Pour créer un compte il faut remplir le champ _DébitAutorisé_ et le champ _Solde_ de la fenêtre de création de compte.
 
 ==== B. Partie du diagramme de données nécessaire
 
 Pour pouvoir accéder à la liste des comptes d'un client, et donc de pouvoir en créer,
 nous avons besoin, avant cela, d'accéder à un client de la base de données.
+Les deux classes utilisées sont donc _CompteCourant_ et _Client_.
 
 image::Diagramme-classe_CréerCompte.jpg[][alt=Diagramme de classe créer compte courant, title=Les deux classes nécessaires pour créer un compte]
 
-Les deux seuls champs que l'on peut remplir sont, _débitAutorisé_ et _solde_.
 
 ==== C. Classes impliquées dans la fonctionnalité CréerCompte
 
-** application.control/Access-BD-CompteCourant.java (_creerCompte()_) : Cette fonction permet de faire le lien entre la base de données et la classe _ComptesManagement.java_. Cette fonction se connecte donc à la base de données et y ajoute le compte créé.
+** application.control/Access-BD-CompteCourant.java (_creerCompte()_) : Elle permet de faire le lien entre la base de données et la classe _ComptesManagement.java_. Cette fonction se connecte donc à la base de données et y ajoute le compte créé.
 
 
-** application.control/ComptesManagement.java (_creerNouveauCompte()_) : Elle permet de gérer la fenêtre de création d'un compte client, c'est-à-dire,
-créer un nouveau compte, l'ajoute à la _ListeView_ afin d'être visible dans la liste des comptes du client. Puis envoie le compte
+** application.control/ComptesManagement.java (_creerNouveauCompte()_) : Elle permet de gérer la fenêtre de création d'un compte client, c'est-à-dire, créer un nouveau compte, l'ajoute à la _ListeView_ afin d'être visible dans la liste des comptes du client. Puis envoie le compte
 à la classe _Access-BD-CompteCourant.java_ afin de le sauvegarder dans la base de données.
 
 ** application.control/ComptesManagementController.java (_doNouveauCompte()_) : Elle permet de gérer la vue FXML de la création de compte (_compteeditorpane.fxml_). Et d'ajouter le compte à la fenêtre de la liste des comptes (_comptemanagement.fxml_).
@@ -211,6 +210,43 @@ créer un nouveau compte, l'ajoute à la _ListeView_ afin d'être visible dans l
 ==== D. Diagramme de séquence de la fonctionnalité CréerCompte
 
 image::Image_Diagramme-séquence_CréerCompte.jpg[][alt=Diagramme de séquence créer compte courant, title=Diagramme de séquence de CréerCompte]
+
+=== 2. Débiter/Créditer (Angelo)
+==== A. Use Case réalisé
+image::InkedUSE_CASE_CréditCompte.jpg[][alt=Use Case créditer compte courant, title=Use Case de créditer compte]
+image::InkedUSE_CASE_DébitCompte.jpg[][alt=Use Case débiter compte courant, title=Use Case de débiter compte]
+
+ 
+Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de débiter et de créditer un compte courant d'un client de l'agence. En cliquant sur voir opérations on a le choit entre faire un débit sur le compte sélectionné ou un crédit.
+
+==== B. Partie du diagramme de données nécessaire
+
+Pour pouvoir accéder à la liste des comptes d'un client, et donc de pouvoir le débiter/créditer,
+nous avons besoin, d'accéder à un client de la base de données et aux opérations faites sur le compte sélectionné.
+Les classes utilisées sont donc _CompteCourant_, _Client_, _Operation_ et _TypeOperation_.
+
+image::Diagramme-classe_Créditer-Débiter.jpg[][alt=Diagramme de classe créer compte courant, title=Les deux classes nécessaires pour créer un compte]
+
+
+==== C. Classes impliquées dans la fonctionnalité Créditer/DébiterCompte
+
+** application.control/Access-BD-Operation.java (_insertCredit()_) : Elle permet de faire le lien entre la base de données et la classe _operationsManagement.java_. Cette fonction se connecte donc à la base de données et y ajoute le crédit fait.
+
+
+** application.control/operationsManagement.java (_enregistrerCredit()_) : Elle permet de gérer la fenêtre des opérations sur le compte sélectionné, c'est-à-dire, faire un débit/crédit sur le compte, l'ajoute à la _ListeView_ afin d'être visible dans la liste des opérations du compte. Puis envoie le compte à la classe _Access-BD-Operation.java_ afin de le sauvegarder dans la base de données.
+
+** application.control/Operations ManagementController.java (_doCredit()_) : Elle permet de gérer la vue FXML de la réalisation d'une opération (_operationeditorpane.fxml_). Et d'ajouter l'operation à la fenêtre de la liste des opérations (_operationmanagement.fxml_).
+
+** application.control/OperationsEditorPane.java : Elle permet de générer la page de gestion d'une opération ( débit, crédit, virement ).
+
+** application.control/OperationsEditorPaneController (_displayDialog()_).java : Elle permet de créer la fenêtre selon le mode choisi (Débiter/Créditer/Virement)
+
+==== D. Diagramme de séquence de la fonctionnalité Débiter/CréditerCompte
+
+image::Image_Diagramme-séquence_Créditer-Débiter.jpg[][alt=Diagramme de séquence créditer compte courant, title=Diagramme de séquence de CréditerCompte]
+
+
+
 
 
 
