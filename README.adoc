@@ -15,9 +15,9 @@
 [options="header,footer"]
 |=======================
 |version|rôle     |use case   |cas...                 |   Angelo | Maxime  |   Mathis | Robin
-|1    |Chef d’Agence    |CRUD employé  |C| | | D|
-|1    |Chef d’Agence    |CRUD employé  |R| | | D|
-|1    |Chef d’Agence |CRUD employé  |U| | | D|
+|1    |Chef d’Agence    |CRUD employé  |C| | | F|
+|1    |Chef d’Agence    |CRUD employé  |R| | |F|
+|1    |Chef d’Agence |CRUD employé  |U| | | F|
 |1    |Chef d’Agence   |CRUD employé  |D| | | D|
 |1    |Guichetier     | Compte | Créer|  | F | |
 |1    |Guichetier     | Compte | Créditer/Débiter| F | | |
