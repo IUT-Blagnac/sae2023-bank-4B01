@@ -11,6 +11,8 @@ import application.tools.StageManagement;
 import application.view.OperationsManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -90,7 +92,14 @@ public class OperationsManagement {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				if(this.compteConcerne.estCloture.equals("N")) {
+					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				}
+				else {
+					Alert alerteCptNonVide = new Alert(AlertType.WARNING);
+	            	alerteCptNonVide.setHeaderText("Le compte est fermé");
+	            	alerteCptNonVide.show();
+				}
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
@@ -120,8 +129,15 @@ public class OperationsManagement {
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
-
-				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				
+				if(this.compteConcerne.estCloture.equals("N")) {
+					ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				}
+				else {
+					Alert alerteCptNonVide = new Alert(AlertType.WARNING);
+	            	alerteCptNonVide.setHeaderText("Le compte est fermé");
+	            	alerteCptNonVide.show();
+				}
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);

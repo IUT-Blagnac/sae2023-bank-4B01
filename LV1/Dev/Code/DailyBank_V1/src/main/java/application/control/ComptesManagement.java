@@ -95,7 +95,8 @@ public class ComptesManagement {
 	public void gererOperationsDUnCompte(CompteCourant cpt) {
 		OperationsManagement om = new OperationsManagement(this.primaryStage, this.dailyBankState,
 				this.clientDesComptes, cpt);
-		om.doOperationsManagementDialog();
+		Access_BD_CompteCourant acces = new Access_BD_CompteCourant();
+     	om.doOperationsManagementDialog();
 	}
 
 	/**
@@ -136,18 +137,26 @@ public class ComptesManagement {
 	 * @return le compteCourant modifié ou null si l'opération a échoué
 	 * 
 	 */
-	public void modifierCompte(CompteCourant c) {
-		try {
-			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
-			ac.updateCompteCourant(c);
-		} catch (DatabaseConnexionException e) {
-			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
-			ed.doExceptionDialog();
-			this.primaryStage.close();
-		} catch (ApplicationException ae) {
-			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
-			ed.doExceptionDialog();
+	public CompteCourant modifierCompte(CompteCourant c) {
+		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
+		CompteCourant result = cep.doCompteEditorDialog(this.clientDesComptes, c, EditionMode.MODIFICATION);
+		
+		if (result != null) {
+			try {
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.updateCompteCourant(result);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				result = null;
+				this.primaryStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				result = null;
+			}
 		}
+		return result;
 	}
 	
 	
@@ -185,12 +194,21 @@ public class ComptesManagement {
      * 
      * Cloture le compte sélectionné
      * 
+     * @param IN/OUT le compte à cloturer, OUT car le paaramètre "estCloture" du compte est modifié
+     * 
      */
     public void cloturerCompte(CompteCourant compte) {        
         if (compte != null) {
             try {                
                 Access_BD_CompteCourant acces = new Access_BD_CompteCourant();
-                acces.cloturerCompte(compte);
+                if(compte.estCloture.equals("N")) {
+                    acces.cloturerCompte(compte);
+                }
+                else {
+                	Alert alertCptCloture = new Alert(AlertType.WARNING);
+                	alertCptCloture.setHeaderText("Vous ne pouvez pas effectuer cette opération, le compte est déjà clôturé");
+                	alertCptCloture.show();
+                }
             } catch (DatabaseConnexionException e) {
                 ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
                 ed.doExceptionDialog();

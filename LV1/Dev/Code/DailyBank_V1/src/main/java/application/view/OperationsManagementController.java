@@ -156,9 +156,13 @@ public class OperationsManagementController {
      * Valide l'état des composants de la fenêtre.
      */
 	private void validateComponentState() {
-		// Non implémenté => désactivé
-		this.btnCredit.setDisable(false);
-		this.btnDebit.setDisable(false);
+		if(this.compteConcerne.estCloture.equals("O")) {
+			this.btnCredit.setDisable(true);
+			this.btnDebit.setDisable(true);
+		}else {
+			this.btnCredit.setDisable(false);
+			this.btnDebit.setDisable(false);
+		}
 	}
 
 	 /**
