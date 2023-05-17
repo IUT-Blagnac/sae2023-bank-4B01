@@ -105,7 +105,6 @@ public class CompteEditorPaneController {
 			this.lblMessage.setText("Informations Compte");
 			this.btnOk.setText("Modifier");
 			this.btnCancel.setText("Annuler");
-			this.compteResultat = this.compteEdite;
 			break;
 		case SUPPRESSION:
 			ApplicationException ae = new ApplicationException(Table.CompteCourant, Order.UPDATE, "SUPPRESSION DE COMPTE NON FONCTIONNELLE",
