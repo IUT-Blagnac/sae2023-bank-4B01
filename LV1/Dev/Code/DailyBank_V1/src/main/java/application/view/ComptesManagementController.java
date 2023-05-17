@@ -208,6 +208,7 @@ public class ComptesManagementController {
         this.loadList();
         this.validateComponentState();
     }
+    
 
     
 	private void loadList() {

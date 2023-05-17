@@ -103,6 +103,8 @@ public class OperationsManagementController {
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
+	@FXML
+	private Button btnVirement;
 
 	/**
      * Gère l'événement de clic sur le bouton de fermeture de la fenêtre.
@@ -143,6 +145,11 @@ public class OperationsManagementController {
      */
 	@FXML
 	private void doAutre() {
+		Operation op = this.omDialogController.enregistrerVirement();
+		if (op != null) {
+			this.updateInfoCompteClient();
+			this.validateComponentState();
+		}
 	}
 
 	/**
@@ -182,4 +189,6 @@ public class OperationsManagementController {
 
 		this.validateComponentState();
 	}
+	
+	
 }

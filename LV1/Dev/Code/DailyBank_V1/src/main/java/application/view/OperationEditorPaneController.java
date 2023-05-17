@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
@@ -108,6 +109,23 @@ public class OperationEditorPaneController {
 			this.cbTypeOpe.setItems(ListTypesOpesPossibles);
 			this.cbTypeOpe.getSelectionModel().select(0);
 			break;
+		case VIREMENT:
+			
+			String infoVir = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoVir);
+			this.txtVirement = new TextField();
+			this.labVirement = new Label("N° Destinataire : ");
+			gPVirement.add(txtVirement, 1, 1);
+			gPVirement.add(labVirement, 0, 1);
+			this.btnOk.setText("Effectuer Virement");
+			this.btnCancel.setText("Annuler");
+			this.cbTypeOpe.setDisable(true);
+			this.operationResultat.idNumCompte=Integer.parseInt(this.txtVirement.getText());
+			this.primaryStage.showAndWait();
+			
+			break;
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences
@@ -143,6 +161,12 @@ public class OperationEditorPaneController {
 	private Button btnOk;
 	@FXML
 	private Button btnCancel;
+	@FXML
+	private TextField txtVirement;
+	@FXML
+	private GridPane gPVirement;
+	@FXML
+	private Label labVirement;
 
 	/**
 	 * 
@@ -229,6 +253,33 @@ public class OperationEditorPaneController {
 			}
 			String TypeOp = this.cbTypeOpe.getValue();
 			this.operationResultat = new Operation(-1, montantCre, null, null, this.compteEdite.idNumCli, TypeOp);
+			this.primaryStage.close();
+			break;
+		case VIREMENT:
+			
+			double montantVir;
+
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+			String infoVir = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(infoVir);
+
+			try {
+				montantVir = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montantVir <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+		
+				return;
+			}
+			String TypeOpV = this.cbTypeOpe.getValue();
+			this.operationResultat = new Operation(-1, montantVir, null, null, this.compteEdite.idNumCli, TypeOpV);
 			this.primaryStage.close();
 			break;
 		}
