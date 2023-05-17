@@ -57,7 +57,7 @@ image::useCaseV0.png[]
 === 2. Analyse des besoins V1
 
 
-La V1 de l'application va permettre au *gichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
+La V1 de l'application va permettre au *guichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
 
 * Créer un compte
 * Créditer un compte
