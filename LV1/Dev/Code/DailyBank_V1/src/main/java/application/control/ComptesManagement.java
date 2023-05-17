@@ -144,7 +144,13 @@ public class ComptesManagement {
 		if (result != null) {
 			try {
 				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
-				ac.updateCompteCourant(result);
+				if(c.estCloture.equals("N")) {
+					ac.updateCompteCourant(result);
+				}else {
+					Alert alerteCptNonVide = new Alert(AlertType.WARNING);
+	            	alerteCptNonVide.setHeaderText("Action impossible : le compte est clôturé");
+	            	alerteCptNonVide.show();
+				}
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
