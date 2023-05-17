@@ -15,7 +15,7 @@ Créé pour : Détailler chaques fonctionnalités de la V1 de l'application Dail
 == I. Présentation de l'application
 [.text-justify]
 
-L’application Daily Bank est l’outil de gestion de comptes des clients et en raison d’un besoin de restructuration des services      banquaires nous allons développer cette application devenue obsolète. Nous allons alors adapter cette application aux nouveaux besoin de la banque.
+L’application Daily Bank est l’outil de gestion de comptes des clients et en raison d’un besoin de restructuration des services banquaires nous allons développer cette application devenue obsolète. Nous allons alors adapter cette application aux nouveaux besoin de la banque.
 
 
 === 1. Cas d'utilisation global
@@ -177,70 +177,41 @@ A part :
 
 
 == III. Fonctionnalités de l'application
-=== 1. Créer client
+=== 1. Créer compte (Maxime)
+==== A. Use Case réalisé
+image::InkedUSE_CASE_CréerCompte.jpg[][alt=Use Case créer compte courant, title=Use Case de créer compte]
 
-image::InkedUSE_CASE_CréerClient.jpg[][title=Use Case de créer client]
+ 
+Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de créer un nouveau compte courant pour un client de l'agence. 
 
-[.text-justify]
+==== B. Partie du diagramme de données nécessaire
 
-Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de créer un nouveau client dans l'agence. 
+Pour pouvoir accéder à la liste des comptes d'un client, et donc de pouvoir en créer,
+nous avons besoin, avant cela, d'accéder à un client de la base de données.
 
+image::Diagramme-classe_CréerCompte.jpg[][alt=Diagramme de classe créer compte courant, title=Les deux classes nécessaires pour créer un compte]
 
+Les deux seuls champs que l'on peut remplir sont, _débitAutorisé_ et _solde_.
 
-=== 2. Analyse des besoins V1
+==== C. Classes impliquées dans la fonctionnalité CréerCompte
 
-
-La V1 de l'application va permettre au *gichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
-
-* Créer un compte
-* Créditer un compte
-* Effectuer un virement de compte à compte
-* Clôturer un compte
-
-Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un guichetier et aura désormais la possibilité de *gérer les employés (CRUD)*.
-
-image::useCaseV1.drawio.svg[]
+** application.control/Access-BD-CompteCourant.java (_creerCompte()_) : Cette fonction permet de faire le lien entre la base de données et la classe _ComptesManagement.java_. Cette fonction se connecte donc à la base de données et y ajoute le compte créé.
 
 
-=== 3. Analyse des besoins V2
+** application.control/ComptesManagement.java (_creerNouveauCompte()_) : Elle permet de gérer la fenêtre de création d'un compte client, c'est-à-dire,
+créer un nouveau compte, l'ajoute à la _ListeView_ afin d'être visible dans la liste des comptes du client. Puis envoie le compte
+à la classe _Access-BD-CompteCourant.java_ afin de le sauvegarder dans la base de données.
 
+** application.control/ComptesManagementController.java (_doNouveauCompte()_) : Elle permet de gérer la vue FXML de la création de compte (_compteeditorpane.fxml_). Et d'ajouter le compte à la fenêtre de la liste des comptes (_comptemanagement.fxml_).
 
+** application.control/ComptesEditorPane.java : Elle permet de générer la page de gestion d'un compte ( le créer, le modifier, voir les opérations ).
 
+** application.control/ComptesEditorPaneController (_displayDialog()_).java : Elle permet de créer la fenêtre selon le mode choisi (Créer/Modifier/Supprimer)
 
-La version 2 de l'application DailyBank permetttra au *gichetier* de réaliser toutes ces actions :
+==== D. Diagramme de séquence de la fonctionnalité CréerCompte
 
-* Générer un relevé mensuel d'un compte en PDF
-* Gérer les prélèvements automatiques (CRUD)
-* Modifier le plafond d'un compte
-
-Le *chef d'Agence* aura également la possibilité de :
-
-* Simuler un emprunt
-* Simuler une assurance d'emprunt
-* Effectuer un débit exceptionnel
-
-
-image::useCaseV2.drawio.svg[]
+image::Image_Diagramme-séquence_CréerCompte.jpg[][alt=Diagramme de séquence créer compte courant, title=Diagramme de séquence de CréerCompte]
 
 
 
-== IV. Analyse des contraintes
 
-Ce projet comporte des contraintes tant dans l'organisation de l'équipe que techniques :
-
-
-=== 1. Contraintes Organisationnelles
-
-* Répartir les tâches équitablement
-* Respecter les délais de chacune des tâches
-* Prévoir des retards sur certaines tâches et réussir à s'adapter
-* Communiquer sur l'avancement et les éventuels problèmes rencontrés (GitHub + Discord)
-* Respecter le délai de rendu du projet, date butoir le 26/05/2023
-
-=== 2. Contraintes Techniques
-
-* Le rendu du projet doit être un jar
-* L'utilisateur doit disposer de la version 17 de java
-* Un serveur SQL permettant de stocker la base de données liée au projet
-
-Ces contraintes techniques sont destinées aux auteurs du projet et également à l'utilisateur (client) qui devra disposer des éléments cités ci-dessus.
