@@ -177,9 +177,9 @@ A part :
 
 
 == III. Fonctionnalités de l'application
-=== 1. Modifier client
+=== 1. Créer client
 
-
+image::Images_Doc-Tech_V1/InkedUSE_CASE_CréerClient.jpg[]
 
 
 
