@@ -225,7 +225,7 @@ Pour pouvoir accéder à la liste des comptes d'un client, et donc de pouvoir le
 nous avons besoin, d'accéder à un client de la base de données et aux opérations faites sur le compte sélectionné.
 Les classes utilisées sont donc _CompteCourant_, _Client_, _Operation_ et _TypeOperation_.
 
-image::Diagramme-classe_Créditer-Débiter.jpg[][alt=Diagramme de classe créer compte courant, title=Les deux classes nécessaires pour créer un compte]
+image::Diagramme-classe_DailyBank_Créditer-Débiter.jpg[][alt=Diagramme de classe créer compte courant, title=Les deux classes nécessaires pour créer un compte]
 
 
 ==== C. Classes impliquées dans la fonctionnalité Créditer/DébiterCompte
