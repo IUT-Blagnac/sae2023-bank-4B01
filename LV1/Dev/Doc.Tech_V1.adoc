@@ -179,7 +179,11 @@ A part :
 == III. Fonctionnalités de l'application
 === 1. Créer client
 
-image::Images_Doc-Tech_V1/InkedUSE_CASE_CréerClient.jpg[]
+image::InkedUSE_CASE_CréerClient.jpg[][title=Use Case de créer client]
+
+[.text-justify]
+
+Cette fonctionnalité permet aux guichetiers et aux chefs d'agence de créer un nouveau client dans l'agence. 
 
 
 
