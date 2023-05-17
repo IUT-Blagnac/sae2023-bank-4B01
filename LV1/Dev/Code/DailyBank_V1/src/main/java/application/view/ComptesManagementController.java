@@ -140,9 +140,7 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			if(cpt.estCloture.equals("N")){
-				this.cmDialogController.gererOperationsDUnCompte(cpt);
-			}
+			this.cmDialogController.gererOperationsDUnCompte(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -224,8 +222,12 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
+			this.btnModifierCompte.setDisable(false);
+			this.btnSupprCompte.setDisable(false);
 		} else {
 			this.btnVoirOpes.setDisable(true);
+			this.btnModifierCompte.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
 		}
 	}
 }
