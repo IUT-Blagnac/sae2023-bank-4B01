@@ -35,7 +35,7 @@ public class Employe {
 	@Override
 	public String toString() {
 		return "[" + this.idEmploye + "] " + this.nom + " " + this.prenom
-				+ "  |  " + this.droitsAccess + "  |  "+ "Numéro d'agence: "+ this.idAg;
+				+ "  |  " + this.droitsAccess;
 	}
 
 }

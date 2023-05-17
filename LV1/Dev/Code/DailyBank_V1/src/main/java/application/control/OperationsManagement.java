@@ -155,6 +155,37 @@ public class OperationsManagement {
 	
 	/**
 	 * 
+	 * Enregistre une opération de crédit pour le compte courant.
+	 * 
+	 * @return l'opération enregistrée ou null si une erreur est survenue
+	 * 
+	 */
+	public Operation enregistrerVirement() {
+
+		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+		if (op != null) {
+			try {
+				Access_BD_Operation ao = new Access_BD_Operation();
+
+				ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompte, op.montant, op.idTypeOp);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+				op = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				op = null;
+			}
+		}
+		return op;
+	}
+	
+	/**
+	 * 
 	 * Récupère la liste des opérations et le solde du compte courant.
 	 * 
 	 * @return un objet PairsOfValue contenant le compte courant et la liste des opérations
@@ -185,4 +216,5 @@ public class OperationsManagement {
 		System.out.println(this.compteConcerne.solde);
 		return new PairsOfValue<>(this.compteConcerne, listeOP);
 	}
+	
 }

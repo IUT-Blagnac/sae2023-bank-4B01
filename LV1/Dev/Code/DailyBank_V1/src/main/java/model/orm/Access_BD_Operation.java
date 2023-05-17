@@ -211,6 +211,52 @@ public class Access_BD_Operation {
 		}
 	}
 	
+	/**
+	 * Enregistrement d'un virement.
+	 *
+	 * - Enregistre l'opération <BR />
+	 * - Met à jour le solde du compte. <BR />
+	 *
+	 * @param idNumCompte compte débité
+	 * @param idNumCompteDest compte crédité
+	 * @param montant     montant transféré
+	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+	 */
+	public void insertVirement(int idNumCompte, int idNumCompteDest, double montant, String typeOp)
+			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call Virer (?, ?, ?, ?)}";
+			// les ? correspondent aux paramètres : cf. déf procédure (4 paramètres)
+			call = con.prepareCall(q);
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			// 1 -> valeur du premier paramètre, cf. déf procédure
+			call.setInt(2, idNumCompteDest);
+			call.setDouble(3, montant);
+			// Paramètres out
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
+
+			call.execute();
+
+			int res = call.getInt(4);
+
+			if (res != 0) { // Erreur applicative
+				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
+						"Erreur de règle de gestion : découvert autorisé dépassé", null);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
+	
 
 	/*
 	 * Fonction utilitaire qui retourne un ordre sql "to_date" pour mettre une date
