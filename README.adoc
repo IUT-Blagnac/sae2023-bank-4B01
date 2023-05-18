@@ -67,7 +67,7 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 | 17/05        | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | Attention vous devez prévoir les erreurs de saisie dans vos tests, pas que ce qui marche (voir ex débit)
 |17/05 | JAR V1 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Jar/DailyBank-1.0-shaded.jar                      |
 | 17/05 | Code V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV1/Dev/Code/DailyBank_V1  |
-|         | Suivi projet V1|   | 
+|         | Suivi projet V1|   | readme OK, arbo GIT OK, classez bien les fichiers. Continuez à commenter vos commits. Les issues du board semblent correspondre au GANTT, mais pas à jour en terme d'avancement. Attention a bien ajouter labels & milestones sur les issues. Respectez la convention de nommage du repo.
 | 26/05   | Gantt V2  réalisé    |       | 
 |         | Doc. Util. V2 |         |         
 |         | Doc. Tec. V2 |                |     
