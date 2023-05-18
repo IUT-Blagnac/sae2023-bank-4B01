@@ -63,7 +63,7 @@ reprendre les contraintes technique / orga.
 |  16/05       | Gantt V2 Prevu| https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Diagramme_GANTT_V2_ProjetBank_4B1.pdf        |     
 | 17/05   | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Doc.Tech_V1.adoc       |    La présentation générale de l'appli avec les acteurs et les rôles de chacun est trop restreinte. Le use case global est juste là pour illustrerL'architecture mériterait un schéma pour mieux comprendre. Il manque la description des ressources (environnement de dév) pour que l'on puisse reprendre facilement l'appli. Les fonctionnalités décrites sont OK mais il en manque ...Partie Mathis ? Dev Robin ???
 | 16/05    | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Doc.Utilisateur_V1.adoc     |
-| 17/05        | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | 
+| 17/05        | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | Attention vous devez prévoir les erreurs de saisie dans vos tests, pas que ce qui marche (voir ex débit)
 |17/05 | JAR V1 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Jar/DailyBank-1.0-shaded.jar                      |
 | 17/05 | Code V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV1/Dev/Code/DailyBank_V1  |
 |         | Suivi projet V1|   | 
