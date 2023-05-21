@@ -11,14 +11,26 @@ Créé pour : Détailler chaques fonctionnalités de la V1 de l'application Dail
  
 
 
-
 == I. Présentation de l'application
 [.text-justify]
 
 L’application Daily Bank est l’outil de gestion de comptes des clients et en raison d’un besoin de restructuration des services banquaires nous allons développer cette application devenue obsolète. Nous allons alors adapter cette application aux nouveaux besoin de la banque.
+Pour ce faire nous avons 4 collaborateurs:
+Mathis Brefuel ---  developpement
+Robin Fligitter --- Redacteur
+Angelo Nichele --- Chef de projet
+Planquès Maxime --- Redacteur & developpement
 
+=== 1. Description des ressources 
+[.text-justify]
 
-=== 1. Cas d'utilisation global
+Languages utilisés: java 17 
+Outils utilisé : Scene Builder, Maven
+Framework GUI: JavaFX
+Base de données: MySql
+Configuration nécessaire: Toutes
+
+=== 2. Cas d'utilisation global
 [.text-justify]
 
 La V1 de l'application va permettre au *guichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
@@ -32,7 +44,7 @@ Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un gui
 
 image::useCaseV1.drawio.svg[]
 
-=== 2. Diagramme de classe
+=== 3. Diagramme de classe
 [.text-justify]
 
 Voici le diagramme de classe de la base de données de la banque DailyBank
