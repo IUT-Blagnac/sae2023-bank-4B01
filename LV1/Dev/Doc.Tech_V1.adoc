@@ -16,18 +16,26 @@ Créé pour : Détailler chaques fonctionnalités de la V1 de l'application Dail
 
 L’application Daily Bank est l’outil de gestion de comptes des clients et en raison d’un besoin de restructuration des services banquaires nous allons développer cette application devenue obsolète. Nous allons alors adapter cette application aux nouveaux besoin de la banque.
 Pour ce faire nous avons 4 collaborateurs:
-Mathis Brefuel ---  developpement
-Robin Fligitter --- Redacteur
-Angelo Nichele --- Chef de projet
-Planquès Maxime --- Redacteur & developpement
+
+* Mathis Brefuel ---  developpement
+
+* Robin Fligitter --- Redacteur
+
+* Angelo Nichele --- Chef de projet
+
+* Planquès Maxime --- Redacteur & developpement
 
 === 1. Description des ressources 
 [.text-justify]
 
 Languages utilisés: java 17 
+
 Outils utilisé : Scene Builder, Maven
+
 Framework GUI: JavaFX
+
 Base de données: MySql
+
 Configuration nécessaire: Toutes
 
 === 2. Cas d'utilisation global
