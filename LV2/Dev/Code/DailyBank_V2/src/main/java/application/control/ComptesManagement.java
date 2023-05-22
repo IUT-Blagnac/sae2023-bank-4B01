@@ -165,8 +165,6 @@ public class ComptesManagement {
 		return result;
 	}
 	
-	
-	
 
 	/**
 	 * 
@@ -226,5 +224,18 @@ public class ComptesManagement {
         }
     }
     
+    /**
+     * 
+	 * Permet à l'utilisateur d'interagir avec la gestion des prélèvements du controleur de la gestion des comptes d'un client
+	 *
+	 * @param client Le client
+	 * 
+	 */
+	public void gererPrelevements(Client client) {
+		
+		PrelevementManagement pm = new PrelevementManagement(this.primaryStage, this.dailyBankState, client);
+		pm.doPrelevementsManagementDialog();
+		
+	}
 
 }

@@ -1,12 +1,27 @@
 package application.view;
 
+import java.awt.Desktop;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import application.DailyBankState;
-import application.control.CompteEditorPane;
 import application.control.ComptesManagement;
-import application.tools.EditionMode;
+import application.control.OperationsManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +35,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Operation;
 
 /**
  * 
@@ -119,6 +135,10 @@ public class ComptesManagementController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
+	@FXML
+	private Button btnPDF;
+	@FXML
+	private Button btnPrelevements;
 
 	/**
 	 * 
@@ -208,6 +228,98 @@ public class ComptesManagementController {
         this.validateComponentState();
     }
     
+    /**
+     * 
+     * Permet de générer un relevé mensuel en PDF des informations des opérations sur les comptes d'un client
+     * 
+     */
+	@SuppressWarnings("deprecation")
+	@FXML
+    private void doGenererPDF() {
+    	Document doc = new Document();
+		
+		try {
+			
+			PdfWriter.getInstance(doc, new FileOutputStream("Releve_Mensuel_" + this.clientDesComptes.prenom + "_" + this.clientDesComptes.nom + "_" + LocalDate.now().getMonthValue() +"_" + LocalDate.now().getYear() +".pdf"));
+			
+			doc.open();
+
+			
+			Paragraph par1 = new Paragraph("	Relevé mensuel du client", FontFactory.getFont(FontFactory.COURIER_BOLD, 24));
+			
+			Paragraph par2 = new Paragraph("	" + this.clientDesComptes.prenom + " " + this.clientDesComptes.nom, FontFactory.getFont(FontFactory.COURIER_BOLD, 24));
+			
+			Paragraph par3 = new Paragraph("	" + LocalDate.now().getMonthValue() +" / " + LocalDate.now().getYear(), FontFactory.getFont(FontFactory.COURIER_BOLD, 24));
+			
+			PdfPCell cell1 = new PdfPCell(par1);
+			cell1.setBorder(Rectangle.BOX);
+			cell1.setBorderWidth(1f);
+			
+			PdfPCell cell2 = new PdfPCell(par2);
+			cell2.setBorder(Rectangle.BOX);
+			cell2.setBorderWidth(1f);
+			
+			PdfPCell cell3 = new PdfPCell(par3);
+			cell3.setBorder(Rectangle.BOX);
+			cell3.setBorderWidth(1f);
+
+			PdfPTable table1 = new PdfPTable(1); 
+			table1.setWidthPercentage(100);
+			table1.addCell(cell1);
+			table1.addCell(cell2);
+			table1.addCell(cell3);
+			
+			doc.add(table1);
+			
+			
+			doc.add(new Paragraph(" "));
+			doc.add(new Paragraph(" "));
+			doc.add(new Paragraph("------------------------------------------------------------"));
+			doc.add(new Paragraph(" "));
+			
+			for(int i = 0 ; i < this.oListCompteCourant.size() ; i++) {
+				doc.add(new Chunk(i+1 + "e compte : ", FontFactory.getFont(FontFactory.HELVETICA_BOLDOBLIQUE, 14)));
+				doc.add(new Paragraph("Numéro de compte : "+this.oListCompteCourant.get(i).toString()));
+				doc.add(new Paragraph(" "));
+				
+				OperationsManagement ops = new OperationsManagement(primaryStage, dailyBankState, clientDesComptes, this.oListCompteCourant.get(i));
+				
+				ArrayList<Operation> listOp = ops.operationsEtSoldeDunCompte().getRight();
+
+				for(int j = 0 ; j < listOp.size() ; j ++) {
+					if(listOp.get(j).dateOp.getMonth() == LocalDate.now().getMonthValue());{
+						doc.add(new Paragraph(listOp.get(j).toString()));	
+					}
+				}
+				doc.add(new Paragraph(" "));
+				doc.add(new Paragraph("------------------------------------------------------------"));
+				doc.add(new Paragraph(" "));
+			}
+			
+			
+			doc.close();
+			Desktop.getDesktop().open(new File("releve_mensuel_" + this.clientDesComptes.prenom + "_" + this.clientDesComptes.nom + "_" + LocalDate.now().getMonthValue() +"_" + LocalDate.now().getYear() +".pdf"));
+
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			
+		} catch (DocumentException e) {
+			
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+
+    }
+    
+	@FXML
+	private void doVoirPrelevements() {
+		this.cmDialogController.gererPrelevements(this.clientDesComptes);
+	}
 
     
 	private void loadList() {
@@ -220,6 +332,7 @@ public class ComptesManagementController {
 	private void validateComponentState() {
 		this.btnModifierCompte.setDisable(false);
 		this.btnSupprCompte.setDisable(false);
+		this.btnPrelevements.setDisable(false);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
@@ -231,5 +344,9 @@ public class ComptesManagementController {
 			this.btnModifierCompte.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
 		}
+		
+		
 	}
+	
+	
 }

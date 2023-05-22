@@ -80,6 +80,7 @@ public class EmployeManagementController {
 	@FXML
 	private Button butSupprimer;
 	
+	
 	@FXML
 	private void doRechercher() {
 		int numCompte;
