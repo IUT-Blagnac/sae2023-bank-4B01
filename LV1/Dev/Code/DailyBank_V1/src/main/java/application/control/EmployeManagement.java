@@ -100,26 +100,25 @@ public class EmployeManagement {
 		return result;
 	}
 	
-//	public Employe supprimerEmploye(Employe em) {
-//		EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
-//		Employe result = eep.doEmployeEditorDialog(em, EditionMode.SUPPRESSION);
-//		if (result != null) {
-//			try {
-//				Access_BD_Employe ae = new Access_BD_Employe();
-//				ae.deleteEmploye(result);
-//			} catch (DatabaseConnexionException e) {
-//				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
-//				ed.doExceptionDialog();
-//				result = null;
-//				this.primaryStage.close();
-//			} catch (ApplicationException ae) {
-//				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
-//				ed.doExceptionDialog();
-//				result = null;
-//			}
-//		}
-//		return result;
-//	}
+	public Employe supprimerEmploye(Employe em) {
+	
+		if (em != null) {
+			try {
+				Access_BD_Employe ae = new Access_BD_Employe();
+				ae.deleteEmploye(em);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				em = null;
+				this.primaryStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+				em = null;
+			}
+		}
+		return em;
+	}
 
 	public Employe nouveauEmploye() {
 		Employe employe;
