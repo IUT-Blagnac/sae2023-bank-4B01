@@ -266,6 +266,9 @@ image::Diagramme-classe_DailyBank_Créditer-Débiter.jpg[][alt=Diagramme de clas
 image::Image_Diagramme-séquence_Créditer-Débiter.jpg[][alt=Diagramme de séquence créditer compte courant, title=Diagramme de séquence de CréditerCompte]
 
 
+=== 3. Gestion Employé (CRUD)
+==== A. Use Case réalisé
+
 
 
 
