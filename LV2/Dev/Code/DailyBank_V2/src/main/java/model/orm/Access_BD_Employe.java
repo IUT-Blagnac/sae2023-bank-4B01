@@ -205,21 +205,27 @@ public class Access_BD_Employe {
 	 *                                           mal formée ou autre)
 	 * @throws DatabaseConnexionException        Erreur de connexion
 	 */
-	public void deleteEmploye(Employe pfEmploye) throws DataAccessException, DatabaseConnexionException {
-	        try {
-	            Connection con = LogToDatabase.getConnexion();
+	public void deleteEmploye(Employe pfEmploye) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+        try {
+            Connection con = LogToDatabase.getConnexion();
 
-	            String query = "DELETE FROM EMPLOYE " + "WHERE idemploye = ? ";
-	            PreparedStatement pst = con.prepareStatement(query);
-	            pst.setInt(1, pfEmploye.idEmploye);
-	            pst.close();
-	            con.commit();
-	        
-        
+            String query = "DELETE FROM EMPLOYE WHERE IDEMPLOYE = ?";
+
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, pfEmploye.idEmploye);
+
+            int result = pst.executeUpdate();
+            pst.close();
+            if (result < 1) {
+                con.rollback();
+                throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE,
+                        "Delete impossible de la ligne : Access_BD_Employe.deleteEmploye", null, result);
+            }
+            con.commit();
         } catch (SQLException e) {
             throw new DataAccessException(Table.Employe, Order.DELETE, "Erreur accès", e);
         }
-	}
+    }
 
 	
 	public boolean checkIdAgence(int pfIdAg) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {

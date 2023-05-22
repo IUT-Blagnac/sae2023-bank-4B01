@@ -157,7 +157,7 @@ public class EmployeManagementController {
 		int selectedIndice = this.listeEm.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			Employe empMod = this.oListEmploye.get(selectedIndice);
-			this.accessBD.deleteEmploye(empMod);
+			this.emDialogController.supprimerEmploye(empMod);
 		}
 	}
 	
