@@ -268,6 +268,11 @@ image::Image_Diagramme-séquence_Créditer-Débiter.jpg[][alt=Diagramme de séqu
 
 === 3. Gestion Employé (CRUD)
 ==== A. Use Case réalisé
+Cette fonctionnalité permet aux chefs d'agence de gérer les employés de assignés à leur agence. Cela comporte le droit de créer un nouvel employé, lire les informations d'un employés, le modifier ou le supprimer. 
+
+==== B. Partie du diagramme de données nécessaire
+Pour pouvoir gérer un employé, nous avons besoin de la connexion d'un chef d'agence ainsi que des informations des employés, accesible via la bae de donnée.
+Les classes utilisées sont donc _Employe_, _AgenceBancaire_ et _ChefAgence_.
 
 
 
