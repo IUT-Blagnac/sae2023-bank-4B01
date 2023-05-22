@@ -109,6 +109,8 @@ public class ClientsManagementController {
 	private Button btnModifClient;
 	@FXML
 	private Button btnComptesClient;
+	@FXML
+	private Button btnSimulerEmprunt;
 
 	/**
 	 * 
@@ -243,4 +245,5 @@ public class ClientsManagementController {
 			this.btnDesactClient.setDisable(true);
 		}
 	}
+	
 }

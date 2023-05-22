@@ -177,4 +177,8 @@ public class ClientsManagement {
 		}
 		return listeCli;
 	}
+	public void OpenSimulationEmprunt() {
+		
+		
+	}
 }
