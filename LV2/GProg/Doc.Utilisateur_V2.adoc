@@ -5,7 +5,7 @@
 :Entreprise: DailyBank
 :Equipe:  
 
-.Groupe 4B01, Auteur : Angelo Nichele, publié le 17/05/2023
+.Groupe 4B01, Auteur : Fligitter Robin, publié le 26/05/2023
 Créé pour : Détailler et guider les utilisateurs dans leurs utilisations de l'application
 
  
@@ -50,14 +50,13 @@ Avant d'utiliser Daily Bank, vous devez configurer votre compte. Voici les étap
 
 3- Connecter vous via l'identifiant et le mot de de passe qui vous a été attribué.
 
+4- Utilisez à votre souhait l'application !
+
 
 == IV. Gestion des clients
 [.text-justify]
 
-=== 1. Gestion des Clients
-[.text-justify]
-
-Une fois que vous êtes connecté , vous pouvez commencer à utiliser Daily Bank. Voici quelques fonctionnalités de l'application :
+Dans cette partie vous retrouverez toute les fonctionnalités liés à la clientèle.
 
 
 === 2. Rechercher un client
@@ -118,6 +117,8 @@ Si vous ne l'êtes pas prenez contact avec le chef de votre agence.
 == V. Gestion des comptes
 [.text-justify]
 
+Dans cette partie vous retrouverez toute les fonctionnalités liés aux comptes et aux opérations.
+
 === 1. Consulter un compte
 [.text-justify]
 
@@ -164,31 +165,46 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 === 8. Générer un relevé mensuel d’un compte en PDF
 [.text-justify]
 
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir comptes --> Générer relevé PDF
+
+Vous obtiendrez le pdf dans votre navigateur par défault, si vous voulez le télécharger et l'enregistrer sur votre ordinateur, cliquez sur imprimer ( Ctrl + P ) --> destination : Enregistrer au format PDF .
 
 
 
 === 9. Gérer  les prélèvements automatiques
 [.text-justify]
 
+Dans cette section, vous verrez les 4 fonctionnalités du prélèvement automatique. La Creation, lecture, modification et suppression des prélèvements automatique.
+
 ==== A. Créer des prélèvements automatique
 [.text-justify]
+
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Nouveau prélèvements --> Saisir Bénéficiaire --> Saisir Montant --> Saisir Date--> Choisir le compte sur ID Compte --> Valider.
 
 
 
 ==== B. Lire des prélèvements automatique
 [.text-justify]
 
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher
 
+La saisie du numéro de compte n'est pas nécessaire elle est là pour affiner les recherches à un compte ou plusieurs
 
-==== C. Lire des prélèvements automatique
+==== C. Modifier des prélèvements automatique
 [.text-justify]
 
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides )
 
 ==== D. Supprimer les prélèvements automatique
 [.text-justify]
 
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher --> Cliquer sur le prélevement automatique --> Supprimer
 
 
+=== 9. Effectuer un Débit exceptionnel
+[.text-justify]
+
+Cette fonctionnalité est disponible seulement à un chef d'Agence.
 
 
 
@@ -196,7 +212,7 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 [.text-justify]
 
 La gestion des employés est reservé aux chefs d'Agence, les guichetiers n'y ont pas accès !
-Pour y accéder veuillez suivre : Gestion --> Employés
+Pour accéder au menu principal veuillez suivre : Gestion --> Employés
 
 
 === 1. Créer un employé
@@ -227,8 +243,18 @@ L'identifiant des employés ne peut pas être modifié.
 
 Gestion --> Employés --> Rechercher dans la barre en haut via le nom, prenom ou identifiant --> bouton Rechercher --> Choisir --> Supprimer.
 
+== VII. Les Emprunts
+[.text-justify]
 
-== VII.  Support
+Dans cette partie vous retrouverez toute les fonctionnalités liés aux simulation d'emprunts et d'assurance d'emprunts 
+
+=== 1. Simuler un emprunt
+[.text-justify]
+
+=== 2. Simuler une assurance d’emprunt
+[.text-justify]
+
+== VIII.  Support
 [.text-justify]
 
 Si vous rencontrez des problèmes avec Daily Bank, vous pouvez contacter notre équipe de support à l'adresse suivante : support@dailyBank.fr
