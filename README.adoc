@@ -18,7 +18,7 @@
 |1    |Chef d’Agence    |CRUD employé  |C| | | F|
 |1    |Chef d’Agence    |CRUD employé  |R| | |F|
 |1    |Chef d’Agence |CRUD employé  |U| | | F|
-|1    |Chef d’Agence   |CRUD employé  |D| | | D|
+|1    |Chef d’Agence   |CRUD employé  |D| | | F|
 |1    |Guichetier     | Compte | Créer|  | F | |
 |1    |Guichetier     | Compte | Créditer/Débiter| F | | |
 |1    |Guichetier     | Compte | Effectuer un virement|  | | D |
@@ -27,10 +27,10 @@
 |2    |Chef d’Agence     | Emprunt | Simuler emprunt|| |D  | D
 |2    |Chef d’Agence     | Emprunt | Simuler assurance|| | D |D
 |2    |Guichetier     | Compte | Relevé PDF|  F | |  |
-|2    |Guichetier     | CRUD Prélèvement | C| D | |  |
-|2    |Guichetier     | CRUD Prélèvement | R|  D | |  |
-|2    |Guichetier     | CRUD Prélèvement | U|| D |  |
-|2    |Guichetier     | CRUD Prélèvement | D|| D |  |
+|2    |Guichetier     | CRUD Prélèvement | C| F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | R|  F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | U| F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | D| F | F |  |
 |2    |Batch     | Prélèvements automatiques | || | |
 |2    |Batch     | Reléves mensuels | || |  | 
 
@@ -68,7 +68,7 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 |17/05 | JAR V1 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Jar/DailyBank-1.0-shaded.jar                      |
 | 17/05 | Code V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV1/Dev/Code/DailyBank_V1  |
 |         | Suivi projet V1|   | readme OK, arbo GIT OK, classez bien les fichiers. Continuez à commenter vos commits. Les issues du board semblent correspondre au GANTT, mais pas à jour en terme d'avancement. Attention a bien ajouter labels & milestones sur les issues. Respectez la convention de nommage du repo.
-| 26/05   | Gantt V2  réalisé    |       | 
+| 26/05   | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Projet-DailyBank_GANTT-V2-Realiser_4B01.pdf      | 
 |         | Doc. Util. V2 |         |         
 |         | Doc. Tec. V2 |                |     
 |         | Code V2    |                     | 
