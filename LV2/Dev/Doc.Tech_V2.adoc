@@ -1,4 +1,4 @@
-= Document technique de la V1 : Projet DailyBank V1
+= Document technique de la V2 : Projet DailyBank V2
 :toc:
 :toc-title: Sommaire
 
@@ -6,7 +6,7 @@
 :Equipe:  
 
 .Groupe 4B01, Auteur : Angelo Nichele, publié le 17/05/2023
-Créé pour : Détailler chaques fonctionnalités de la V1 de l'application DailyBank
+Créé pour : Détailler chaques fonctionnalités de la V2 de l'application DailyBank
 
  
 
@@ -41,14 +41,28 @@ Configuration nécessaire: Toutes
 === 2. Cas d'utilisation global
 [.text-justify]
 
-La V1 de l'application va permettre au *guichetier* de réaliser les mêmes actions que dans la V0 tout en lui permettant de réaliser de nouvelles actions :
+La V2 et version finale de l'application va permettre aux
 
+* Modifier informations client
+* Créer un nouveau client
+* Consulter un compte
+* Débiter un compte
 * Créer un compte
 * Créditer un compte
 * Effectuer un virement de compte à compte
 * Clôturer un compte
+* Générer un relevé mensuel d’un compte en PDF
+* Gérer  les prélèvements automatiques
 
-Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un guichetier et aura désormais la possibilité de *gérer les employés (CRUD)*.
+Le *Chef d'Agence* aura la possibilité de réaliser toutes les actions d'un guichetier en plus des actions réservé aux chefs d'agence.
+
+Actions réservé aux chefs d'Agence :
+
+* Gérer les employés
+* Rendre inactif un client
+* Effectuer un Débit exceptionnel
+* Simuler un emprunt
+* Simuler une assurance d’emprunt
 
 image::useCaseV1.drawio.svg[alt=Schéma Use Case, title= Use CaseGlobal]
 
