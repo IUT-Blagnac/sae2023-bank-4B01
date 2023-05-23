@@ -179,26 +179,26 @@ Dans cette section, vous verrez les 4 fonctionnalités du prélèvement automati
 ==== A. Créer des prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Nouveau prélèvements --> Saisir Bénéficiaire --> Saisir Montant --> Saisir Date--> Choisir le compte sur ID Compte --> Valider.
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Nouveau prélèvements --> Saisir Bénéficiaire --> Saisir Montant --> Saisir Date--> Choisir le compte débitaire sur ID Compte  --> Valider.
 
 
 
 ==== B. Lire des prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher
 
 La saisie du numéro de compte n'est pas nécessaire elle est là pour affiner les recherches à un compte ou plusieurs
 
 ==== C. Modifier des prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides )
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides )
 
 ==== D. Supprimer les prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si nécessaire --> Rechercher --> Cliquer sur le prélevement automatique --> Supprimer
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro excat --> Rechercher --> Cliquer sur le prélevement automatique --> Supprimer
 
 
 === 9. Effectuer un Débit exceptionnel
@@ -206,12 +206,17 @@ Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client -->
 
 Cette fonctionnalité est disponible seulement à un chef d'Agence.
 
+Un débit exceptionnel est un débit qui peut se faire malgré une solde qui est en dessous du découvert.
 
+Ce débit est effectué comme un autre débit *par un chef d'agence*
+
+Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations --> Enregistrer Débit --> Choisir le type d'Opération --> choisir le montant --> Valider --> Message de confirmation --> Confirmer
 
 == VI. Gestion des Employés
 [.text-justify]
 
 La gestion des employés est reservé aux chefs d'Agence, les guichetiers n'y ont pas accès !
+é
 Pour accéder au menu principal veuillez suivre : Gestion --> Employés
 
 
@@ -233,7 +238,7 @@ La recherche est possible par nom, prenom ou identifiant
 === 3. Modifier les employés
 [.text-justify]
 
-Gestion --> Employés --> Rechercher dans la barre en haut via le nom, prenom ou identifiant --> bouton Rechercher --> Choisir --> Modifier --> Modification des informations.
+Gestion --> Employés --> Rechercher dans la barre en haut via le nom, prenom ou identifiant --> bouton Rechercher --> Choisir --> Modifier --> Modification des informations--> Valider.
 
 L'identifiant des employés ne peut pas être modifié.
 
