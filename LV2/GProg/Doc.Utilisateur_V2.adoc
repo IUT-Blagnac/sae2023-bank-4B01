@@ -59,7 +59,7 @@ Avant d'utiliser Daily Bank, vous devez configurer votre compte. Voici les étap
 Dans cette partie vous retrouverez toute les fonctionnalités liés à la clientèle.
 
 
-=== 2. Rechercher un client
+=== 1. Rechercher un client
 [.text-justify]
 
 Pour commencer la gestion des clients, veuillez cliquer sur l'onglet gestion en haut de la page, puis choisissez Clients.
@@ -75,7 +75,7 @@ Pensez à appuyer sur rechercher !
 A savoir: vous trouverez seulement les clients de VOTRE Agence.
 
 
-=== 3. Modifier les informations clients
+=== 2. Modifier les informations clients
 [.text-justify]
 
 Après avoir rechercher et selectionner d'un clic le client cible.
@@ -87,8 +87,10 @@ L'Identifiant de référence n'est pas modifiable.
 
 Penser à sauvegarder les modification en appuyant sur le bouton MODIFIER.
 
+image::img_users/Modifier_Client.png[alt:Gestion_des_comptes_d'un_sujet_Test, title: Interface Creation de comptes]
 
-=== 4. Créer un nouveau client
+
+=== 3. Créer un nouveau client
 [.text-justify]
 
 Pour créer un nouveau client, veuillez aller dans l'onglet de gestion des clients.
@@ -104,12 +106,12 @@ L'adresse n'a pas besoin d'être remplie.
 Cliquez sur AJOUTER.
 
 
-=== 5. Rendre inactif un client
+=== 4. Rendre inactif un client
 [.text-justify]
 
 Cette fonctionnalité n'est accessible qu'à un chef d'agence.
 
-Si vous êtes chef d'agence vous pourrez modifier le statut d'inactivité du client en modificant les informations clients.
+Si vous êtes chef d'agence vous pourrez modifier le statut d'inactivité du client en modificant les informations clients( IV.3 )
 
 Si vous ne l'êtes pas prenez contact avec le chef de votre agence.
 
@@ -130,6 +132,10 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Nouveau Compte --> Remplir les champs --> Ajouter
 
+image::img_users/Créer_compte.png[alt:Gestion_des_comptes_d'un_sujet_Test, title: Interface Creation de comptes]
+
+
+image::img_users/Créer_Compte_Info.png[alt:Gestion_des_comptes_d'un_sujet_Test_Info, title: Interface Creation de comptes et des informations]      
 
 === 3. Modifier un Compte
 [.text-justify]
@@ -140,13 +146,20 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 === 4. Cloturer un compte
 [.text-justify]
 
-Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le Compte --> Supprimer
+Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le Compte --> Supprimer compte
+
+Cloturer un compte ne peut se faire que lorsque sa solde se retrouve à 0.
+Le compte sera cloturer et toujours visible mais innaccessible.
+
+CETTE ACTION EST IRRESVERSIBLE.
 
 
 === 5. Debiter un compte
 [.text-justify]
 
 Commencez par rechercher un client --> choisissez le client --> Comptes client --> Choisir le compte --> Voir opérations --> Enregistrer Débit --> Choisir le type d'Opération --> choisir le montant .
+
+image::img_users/débit.png[alt:Effectuer_débit, title: Interface de débit]
 
 Faites attention au découvert autorisé ( en haut à droite ) et regarder si la le debit est possible en prenant en compte la solde du compte. 
 
@@ -186,14 +199,15 @@ Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client -->
 ==== B. Lire des prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte si vous voulez affiner la recherche --> Rechercher
 
-La saisie du numéro de compte n'est pas nécessaire elle est là pour affiner les recherches à un compte ou plusieurs
+Veuillez rentrez le numéro de compte exact pour affiner la recherche sur 1 compte mais vous pouvez tout aussi bien voir tous les prélevements de tous les comptes du client en laissant el champ du numéro de compte vide
+
 
 ==== C. Modifier des prélèvements automatique
 [.text-justify]
 
-Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides )
+Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides ) --> Valider
 
 ==== D. Supprimer les prélèvements automatique
 [.text-justify]
@@ -201,7 +215,7 @@ Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client -->
 Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro excat --> Rechercher --> Cliquer sur le prélevement automatique --> Supprimer
 
 
-=== 9. Effectuer un Débit exceptionnel
+=== 10. Effectuer un Débit exceptionnel
 [.text-justify]
 
 Cette fonctionnalité est disponible seulement à un chef d'Agence.
@@ -216,14 +230,14 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 [.text-justify]
 
 La gestion des employés est reservé aux chefs d'Agence, les guichetiers n'y ont pas accès !
-é
+
 Pour accéder au menu principal veuillez suivre : Gestion --> Employés
 
 
 === 1. Créer un employé
 [.text-justify]
 
-Gestion --> Employés -->  Nouveau --> Remplir les champs necessaires
+Gestion --> Employés -->  Nouveau --> Remplir les champs necessaires --> Valider
 
 
 === 2. Lire les employés
@@ -246,18 +260,28 @@ L'identifiant des employés ne peut pas être modifié.
 === 4. Supprimer un employé
 [.text-justify] 
 
-Gestion --> Employés --> Rechercher dans la barre en haut via le nom, prenom ou identifiant --> bouton Rechercher --> Choisir --> Supprimer.
+Gestion --> Employés --> Rechercher dans la champs en haut via le nom, prenom ou identifiant --> bouton Rechercher --> Choisir --> Supprimer.
 
 == VII. Les Emprunts
 [.text-justify]
 
 Dans cette partie vous retrouverez toute les fonctionnalités liés aux simulation d'emprunts et d'assurance d'emprunts 
 
+Cette partie est accessible seulement aux chefs d'agence.
+
 === 1. Simuler un emprunt
 [.text-justify]
 
+Gestion --> Clients --> Simuler Emprunt --> Remplir les champs ( Durée, montant, Taux ) --> Valider.
+
+Si vous rentrez des informations dans les champs qui ne sont pas cohérents ou alors que vous laissez les champs vide les Emprunts en pourront pas être générés.
+
 === 2. Simuler une assurance d’emprunt
 [.text-justify]
+
+Dans le même cas que la simulation d'emprunt vous aurez à chosir lorsque vous rentrez les informations de l'emprunt si vous voulez ajouter uen assurance, le bouton est par défault sur NON.
+
+Gestion --> Clients --> Simuler Emprunt --> Remplir les champs ( Durée, montant, Taux ) --> Cocher OUI sur assurance Emprunt --> Remplir les champs( Taux Assurance ) --> Valider
 
 == VIII.  Support
 [.text-justify]
