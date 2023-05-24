@@ -1,38 +1,35 @@
 package application.control;
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.StageManagement;
 import application.view.EmpruntManagementController;
+import application.view.ResultatEmpruntPaneController;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-
-/**
- * 
- * Cette classe permet de gérer la fenêtre de gestion des simulation d'emprunt
- *
- */
-public class EmpruntManagement {
-
+public class ResultatEmpruntPane {
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
-	private EmpruntManagementController empruntViewController;
+	private ResultatEmpruntPaneController repViewController;
 
 	
 	/**
-	 * Constructeur de la classe EmpruntManagement
+	 * Constructeur de la classe ResultatEmpruntPane
 	 * 
 	 * @param _parentStage Stage parent de la fenêtre
 	 * @param _dbstate Etat courant de l'application
 	 * 
 	 */
-	public EmpruntManagement(Stage _parentStage, DailyBankState _dbstate) {
+	public ResultatEmpruntPane(Stage _parentStage, DailyBankState _dbstate) {
+		// TODO Auto-generated constructor stub
+		
 		this.dailyBankState = _dbstate;
 		try {
-			FXMLLoader loader = new FXMLLoader(EmpruntManagementController.class.getResource("EmpruntEcriture.fxml"));
+			FXMLLoader loader = new FXMLLoader(EmpruntManagementController.class.getResource("resultatemprunt.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
@@ -43,29 +40,37 @@ public class EmpruntManagement {
 			this.primaryStage.initOwner(_parentStage);
 			StageManagement.manageCenteringStage(_parentStage, this.primaryStage);
 			this.primaryStage.setScene(scene);
-			this.primaryStage.setTitle("Simulation d'emprunt");
+			this.primaryStage.setTitle("Simmulation d'emprunt");
 			this.primaryStage.setResizable(false);
 
-			this.empruntViewController = loader.getController();
-			this.empruntViewController.initContext(this.primaryStage, this, _dbstate);
+			this.repViewController = loader.getController();
+			this.repViewController.initContext(this.primaryStage, this, _dbstate);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	 /**
-    *
-	  * Affiche la fenêtre de simulation d'emprunt
-	  * 
-	 */
-	public void doEmpruntManagementDialog() {
-		this.empruntViewController.displayDialog();
+	
+	
+	public void preparerTableView() {
+		this.repViewController.tableau.setEditable(false);
+		
 	}
 	
-	public void resultatEmprunt() {
-        ResultatEmpruntPane rep = new ResultatEmpruntPane(this.primaryStage, this.dailyBankState);
-        rep.doResultatEmpruntPaneDialog();;
-        
+	
+	
+	
+	
+	
+	 /**
+    *
+	  * Affiche la fenêtre de résultat d'emprunt7
+	  * 
+	 */
+	public void doResultatEmpruntPaneDialog() {
+		this.repViewController.displayDialog();
 	}
+	
+	
 }

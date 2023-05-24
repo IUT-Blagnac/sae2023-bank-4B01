@@ -11,6 +11,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.data.Employe;
+import model.data.Emprunt;
 
 public class EmpruntManagementController {
 	
@@ -101,9 +102,12 @@ public class EmpruntManagementController {
 	@FXML
 	private void doValider() {
 		if (estValide()) {
-			this.primaryStage.close();
+			
+			this.emDialogController.resultatEmprunt();
+			
 		}
 	}
+
 	
 
 

@@ -182,7 +182,7 @@ public class ClientsManagement {
 	
 	public void simulerEmprunt() {
         EmpruntManagement em = new EmpruntManagement(this.primaryStage, this.dailyBankState);
-        em.doClientManagementDialog();
+        em.doEmpruntManagementDialog();
         
 	}
 }
