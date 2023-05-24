@@ -6,6 +6,7 @@ import application.view.EmpruntManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.Emprunt;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
@@ -65,7 +66,6 @@ public class EmpruntManagement {
 	
 	public void resultatEmprunt() {
         ResultatEmpruntPane rep = new ResultatEmpruntPane(this.primaryStage, this.dailyBankState);
-        rep.doResultatEmpruntPaneDialog();;
-        
+        rep.doResultatEmpruntPaneDialog();
 	}
 }

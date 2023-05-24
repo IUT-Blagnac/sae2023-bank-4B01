@@ -7,9 +7,12 @@ import application.view.EmpruntManagementController;
 import application.view.ResultatEmpruntPaneController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.Emprunt;
 
 public class ResultatEmpruntPane {
 	private Stage primaryStage;
@@ -50,14 +53,6 @@ public class ResultatEmpruntPane {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	public void preparerTableView() {
-		this.repViewController.tableau.setEditable(false);
-		
-	}
-	
 	
 	
 	

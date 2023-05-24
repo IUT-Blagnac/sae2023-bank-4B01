@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.data.Employe;
 import model.data.Emprunt;
@@ -25,6 +27,8 @@ public class EmpruntManagementController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
+	
+	
 	
 	
 	/**
@@ -102,7 +106,7 @@ public class EmpruntManagementController {
 	@FXML
 	private void doValider() {
 		if (estValide()) {
-			
+					
 			this.emDialogController.resultatEmprunt();
 			
 		}
@@ -132,6 +136,7 @@ public class EmpruntManagementController {
 	@FXML
 	private void assurerNon() {
 		tauxAssurance.setDisable(true);
+		tauxAssurance.setText("");
 		isSimAssurance=false;
 	}
 
