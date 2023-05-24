@@ -180,6 +180,9 @@ Commencez par rechercher un client --> choisissez le client --> Comptes client -
 
 Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir comptes --> Générer relevé PDF
 
+image::img_users/PDF_prélèvements.png[alt: PDF_Opération , title : Générer des PDF des opérations ]
+
+Le fichier sera téléchargé( dans le dossier téléchargement ) mais si ce n'est pas le cas ?
 Vous obtiendrez le pdf dans votre navigateur par défault, si vous voulez le télécharger et l'enregistrer sur votre ordinateur, cliquez sur imprimer ( Ctrl + P ) --> destination : Enregistrer au format PDF .
 
 
@@ -194,6 +197,7 @@ Dans cette section, vous verrez les 4 fonctionnalités du prélèvement automati
 
 Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Nouveau prélèvements --> Saisir Bénéficiaire --> Saisir Montant --> Saisir Date--> Choisir le compte débitaire sur ID Compte  --> Valider.
 
+image::img_users/Nouveau_prelevements.png[alt: créer_prélevements_CRUD   , title : Créer un nouveau prélevé]
 
 
 ==== B. Lire des prélèvements automatique
@@ -203,17 +207,21 @@ Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client -->
 
 Veuillez rentrez le numéro de compte exact pour affiner la recherche sur 1 compte mais vous pouvez tout aussi bien voir tous les prélevements de tous les comptes du client en laissant el champ du numéro de compte vide
 
+image::img_users/lire_prelevements.png[alt: Lire_prelevement   , title : Consulter les prélevements]
 
 ==== C. Modifier des prélèvements automatique
 [.text-justify]
 
 Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro du compte exact --> Rechercher --> Cliquer sur le prélevement automatique --> Modifier --> Changer les informations dans les champs ( Informations valides ) --> Valider
 
+image::img_users/Modifier_prelevements.png[alt: Modifier_prelevement  , title : Modifier un prelevement ]
+
 ==== D. Supprimer les prélèvements automatique
 [.text-justify]
 
 Gestion des clients --> Rechercher clients --> Rechercher --> choisir Client --> voir compte --> voir prélèvements --> Saisir Numéro excat --> Rechercher --> Cliquer sur le prélevement automatique --> Supprimer
 
+image::img_users/Modifier_prelevements.png[alt: Modifier_prelevement  , title : Modifier un prelevement ]
 
 === 10. Effectuer un Débit exceptionnel
 [.text-justify]
