@@ -13,7 +13,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import model.data.Client;
 import model.data.Employe;
 import model.orm.Access_BD_Employe;
 import model.orm.exception.DataAccessException;

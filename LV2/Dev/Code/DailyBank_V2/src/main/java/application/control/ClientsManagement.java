@@ -14,7 +14,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
+import model.data.Employe;
 import model.orm.Access_BD_Client;
+import model.orm.Access_BD_Employe;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -177,8 +179,10 @@ public class ClientsManagement {
 		}
 		return listeCli;
 	}
-	public void OpenSimulationEmprunt() {
-		
-		
+	
+	public void simulerEmprunt() {
+        EmpruntManagement em = new EmpruntManagement(this.primaryStage, this.dailyBankState);
+        em.doClientManagementDialog();
+        
 	}
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
+import model.data.Employe;
 
 /**
  * 
@@ -244,6 +245,11 @@ public class ClientsManagementController {
 			this.btnComptesClient.setDisable(true);
 			this.btnDesactClient.setDisable(true);
 		}
+	}
+	
+	@FXML
+	private void doSimuler() {
+		this.cmDialogController.simulerEmprunt();
 	}
 	
 }
