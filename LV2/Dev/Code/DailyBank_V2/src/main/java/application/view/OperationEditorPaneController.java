@@ -169,6 +169,7 @@ public class OperationEditorPaneController {
 	@FXML
 	private TextField txtMontant;
 	@FXML
+	
 	private Button btnOk;
 	@FXML
 	private Button btnCancel;

@@ -159,9 +159,11 @@ public class OperationsManagementController {
 		if(this.compteConcerne.estCloture.equals("O")) {
 			this.btnCredit.setDisable(true);
 			this.btnDebit.setDisable(true);
+			this.btnVirement.setDisable(true);
 		}else {
 			this.btnCredit.setDisable(false);
 			this.btnDebit.setDisable(false);
+			this.btnVirement.setDisable(false);
 		}
 	}
 
