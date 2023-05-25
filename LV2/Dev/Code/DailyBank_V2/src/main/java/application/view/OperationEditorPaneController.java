@@ -3,13 +3,14 @@ package application.view;
 import java.util.Locale;
 
 
-
 import application.DailyBankState;
+import application.tools.AlertUtilities;
 import application.tools.CategorieOperation;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -37,6 +38,7 @@ public class OperationEditorPaneController {
 	private CategorieOperation categorieOperation;
 	private CompteCourant compteEdite;
 	private Operation operationResultat;
+	private boolean debitExceptionnel = false;
 
 	/**
 	 * 
@@ -60,6 +62,16 @@ public class OperationEditorPaneController {
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
+	
+	
+	/**
+	 * Précise si il s'agit d'un débit exceptionnel
+	 */
+	public boolean isDebitExceptionnel() {
+		return this.debitExceptionnel;
+	}
+	
+	
 
 	/**
 	 * 
@@ -222,7 +234,21 @@ public class OperationEditorPaneController {
 				this.lblMontant.getStyleClass().add("borderred");
 				this.lblMessage.getStyleClass().add("borderred");
 				this.txtMontant.requestFocus();
-				return;
+				
+				
+				boolean rep = AlertUtilities.confirmYesCancel(primaryStage, "Découvert dépassé !", "Voulez-vous confirmer le débit exceptionnel ?", null, AlertType.CONFIRMATION);
+				
+				if(rep == true) {
+					if(this.dailyBankState.isChefDAgence()) {
+						this.debitExceptionnel = true;
+					}
+					else {
+						AlertUtilities.showAlert(primaryStage, "Erreur : action impossible", "Vous ne pouvez pas effectuer cette action : vous n'êtes pas chef d'agence", null, AlertType.ERROR);
+						this.debitExceptionnel = false;
+					}
+				}else {
+					return;
+				}
 			}
 			String typeOp = this.cbTypeOpe.getValue();
 			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);

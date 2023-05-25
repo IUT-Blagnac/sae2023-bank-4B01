@@ -91,9 +91,14 @@ public class OperationsManagement {
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
+				
 
 				if(this.compteConcerne.estCloture.equals("N")) {
-					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+					if(oep.getTypeDebit() == true) {
+						ao.insertDebitExceptionnel(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+					} else {
+						ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+					}
 				}
 				else {
 					Alert alerteCptNonVide = new Alert(AlertType.WARNING);

@@ -50,6 +50,18 @@ public class OperationEditorPane {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	/**
+	 * Retourne le type de débit
+	 * 
+	 * @return true si le débit est exceptionnel, false sinon
+	 */
+	public boolean getTypeDebit() {
+		return this.oepcViewController.isDebitExceptionnel();
+	}
+	
+	
 
 	/**
 	 * 
