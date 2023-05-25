@@ -64,8 +64,4 @@ public class EmpruntManagement {
 		this.empruntViewController.displayDialog();
 	}
 	
-	public void resultatEmprunt() {
-        ResultatEmpruntPane rep = new ResultatEmpruntPane(this.primaryStage, this.dailyBankState);
-        rep.doResultatEmpruntPaneDialog();
-	}
 }

@@ -4,11 +4,15 @@ import application.DailyBankState;
 import application.control.ClientsManagement;
 import application.control.EmpruntManagement;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -28,7 +32,7 @@ public class EmpruntManagementController {
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
 	
-	
+	public Emprunt simulation;
 	
 	
 	/**
@@ -106,9 +110,71 @@ public class EmpruntManagementController {
 	@FXML
 	private void doValider() {
 		if (estValide()) {
-					
-			this.emDialogController.resultatEmprunt();
 			
+			//création du stage
+			Stage stage = new Stage();
+			
+			//création d'une tableview
+			TableView<Emprunt> tableau = new TableView<>();
+			
+			//gestion des calculs
+			
+			double capDebut = Double.parseDouble(this.montant.getText());
+			double montantInteret;
+			double montantPrincipal;
+			double montantMensualite;
+			double capFin;
+			
+			int nbPeriode;
+			
+			if (this.mois.isSelected()) {
+				nbPeriode = Integer.parseInt(this.duree.getText())*12;
+			}
+			else {nbPeriode=Integer.parseInt(this.duree.getText());}
+			
+			
+			
+			ObservableList<Emprunt> liste = FXCollections.observableArrayList();
+			
+			for (int i=1; i<=nbPeriode; i++) {
+				montantInteret = capDebut * Double.parseDouble(this.applicable.getText());
+				Emprunt unEmprunt = new Emprunt(i, i, montantInteret, i, i, i);
+				liste.add(unEmprunt);
+			}
+			
+			
+			//paramétrage de la tableview
+			tableau.setEditable(false);
+			TableColumn<Emprunt, String> periode = new TableColumn<Emprunt, String>("Nombre période");
+			periode.setPrefWidth(150);
+			TableColumn<Emprunt, String> capitalDebut = new TableColumn<Emprunt, String>("Capital début période");
+			capitalDebut.setPrefWidth(250);
+			TableColumn<Emprunt, String> interet = new TableColumn<Emprunt, String>("Interêt");
+			interet.setPrefWidth(150);
+			TableColumn<Emprunt, String> principal = new TableColumn<Emprunt, String>("Principal");
+			principal.setPrefWidth(150);
+			TableColumn<Emprunt, String> mensualite = new TableColumn<Emprunt, String>("Mensualité");
+			mensualite.setPrefWidth(150);
+			TableColumn<Emprunt, String> capitalFin = new TableColumn<Emprunt, String>("Capital fin période");
+			capitalFin.setPrefWidth(250);
+			tableau.getColumns().addAll(periode, capitalDebut, interet, principal, mensualite, capitalFin);
+			
+			periode.setCellValueFactory(new PropertyValueFactory<>("numPeriode"));
+			capitalDebut.setCellValueFactory(new PropertyValueFactory<>("capitalDebut"));
+			interet.setCellValueFactory(new PropertyValueFactory<>("interet"));
+			principal.setCellValueFactory(new PropertyValueFactory<>("principal"));
+			mensualite.setCellValueFactory(new PropertyValueFactory<>("mensualite"));
+			capitalFin.setCellValueFactory(new PropertyValueFactory<>("capitalFin"));
+			
+			tableau.getItems().addAll(liste);
+			
+			
+			//création de la scene
+			Scene scene = new Scene(tableau);
+			
+			stage.setScene(scene);
+			stage.setTitle("Résultat emprunt");
+			stage.show();
 		}
 	}
 
