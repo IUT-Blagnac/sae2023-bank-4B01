@@ -74,5 +74,6 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 |         | Code V2    |                     | 
 |         | Recette V2 |                      | 
 |         | `jar` projet |    | 
+|         | Bilan projet |     |
 
 |===
