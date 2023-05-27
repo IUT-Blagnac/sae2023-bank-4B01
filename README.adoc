@@ -72,7 +72,7 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 |         | Doc. Util. V2 |         |         
 |         | Doc. Tec. V2 |                |     
 |         | Code V2    |                     | 
-|         | Recette V2 |                      | 
+|         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Cahier_de_Test_FINAL.adoc#ii-pre-requis                   | 
 |         | `jar` projet |    | 
 |         | Bilan projet |     |
 
