@@ -18,6 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.data.Employe;
 import model.data.Emprunt;
+import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class EmpruntManagementController {
 	
@@ -68,9 +70,7 @@ public class EmpruntManagementController {
 	@FXML
 	private TextField duree;
 	@FXML
-	private TextField taux;
-	@FXML
-	private TextField applicable;
+	private TextField tauxAnnuel;
 	@FXML
 	private TextField tauxAssurance;
 	@FXML
@@ -126,20 +126,44 @@ public class EmpruntManagementController {
 			double capFin;
 			
 			int nbPeriode;
+			double tauxApplicable;
 			
+			//calcul nombre de période
+			//calcul taux applicable
 			if (this.mois.isSelected()) {
 				nbPeriode = Integer.parseInt(this.duree.getText())*12;
+				tauxApplicable = Double.parseDouble(this.tauxAnnuel.getText())/100/12;
 			}
-			else {nbPeriode=Integer.parseInt(this.duree.getText());}
-			
-			
-			
+			else {nbPeriode=Integer.parseInt(this.duree.getText());
+				  tauxApplicable = Double.parseDouble(this.tauxAnnuel.getText())/100;
+			}
+		
+				
 			ObservableList<Emprunt> liste = FXCollections.observableArrayList();
 			
+			
+			
+			
 			for (int i=1; i<=nbPeriode; i++) {
-				montantInteret = capDebut * Double.parseDouble(this.applicable.getText());
-				Emprunt unEmprunt = new Emprunt(i, i, montantInteret, i, i, i);
+
+				
+				//calcul mensualite
+				montantMensualite = Double.parseDouble(this.montant.getText())*(tauxApplicable/(1-Math.pow(1+tauxApplicable,-nbPeriode)));
+
+				//calcul interet
+				montantInteret = capDebut*tauxApplicable;
+				
+				//calcul principal
+				montantPrincipal = montantMensualite-montantInteret;
+				
+				//calcul capital de fin de période
+				capFin = capDebut-montantPrincipal;
+				
+				Emprunt unEmprunt = new Emprunt(i, capDebut, montantInteret, montantPrincipal, montantMensualite, capFin);
 				liste.add(unEmprunt);
+				
+				//calcul capital debut periode suivante
+				capDebut = capFin;
 			}
 			
 			
@@ -158,6 +182,7 @@ public class EmpruntManagementController {
 			TableColumn<Emprunt, String> capitalFin = new TableColumn<Emprunt, String>("Capital fin période");
 			capitalFin.setPrefWidth(250);
 			tableau.getColumns().addAll(periode, capitalDebut, interet, principal, mensualite, capitalFin);
+			
 			
 			periode.setCellValueFactory(new PropertyValueFactory<>("numPeriode"));
 			capitalDebut.setCellValueFactory(new PropertyValueFactory<>("capitalDebut"));
@@ -225,8 +250,7 @@ public class EmpruntManagementController {
 	          // Ici traitement si c'est un float
 	    	  float myFloat = Float.parseFloat(montant.getText());
 	          myFloat = Float.parseFloat(duree.getText());
-	          myFloat = Float.parseFloat(taux.getText());
-	          myFloat = Float.parseFloat(applicable.getText());
+	          myFloat = Float.parseFloat(tauxAnnuel.getText());
 	          if(isSimAssurance) { myFloat = Float.parseFloat(tauxAssurance.getText()); }
 	          
 

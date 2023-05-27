@@ -1,5 +1,7 @@
 package model.data;
 
+import java.text.DecimalFormat;
+
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -12,6 +14,8 @@ public class Emprunt {
 	private SimpleDoubleProperty capitalFin;
 	
 	public Emprunt(int numPeriode, double capitalDebut, double interet, double principal, double mensualite, double capitalFin) {
+		
+		
 		this.numPeriode = new SimpleIntegerProperty(numPeriode);
 		this.capitalDebut = new SimpleDoubleProperty(capitalDebut);
 		this.interet = new SimpleDoubleProperty(interet);
