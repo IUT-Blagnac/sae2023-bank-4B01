@@ -141,16 +141,16 @@ public class OperationsManagementController {
 	}
 
 	/**
-     * Gère l'événement de clic sur le bouton autre.
+     * Gère l'événement de clic sur le bouton virement.
      */
 	@FXML
-	private void doAutre() {
-		Operation op = this.omDialogController.enregistrerVirement();
-		if (op != null) {
-			this.updateInfoCompteClient();
-			this.validateComponentState();
-		}
-	}
+    private void doVirement() {
+        Operation op = this.omDialogController.enregistrerVirement();
+        if (op != null) {
+            this.updateInfoCompteClient();
+            this.validateComponentState();
+        }
+    }
 
 	/**
      * Valide l'état des composants de la fenêtre.

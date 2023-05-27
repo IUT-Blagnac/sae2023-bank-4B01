@@ -165,29 +165,31 @@ public class OperationsManagement {
 	 * @return l'opération enregistrée ou null si une erreur est survenue
 	 * 
 	 */
-	public Operation enregistrerVirement() {
-
-		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
-		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
-		if (op != null) {
-			try {
-				Access_BD_Operation ao = new Access_BD_Operation();
-
-				ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompte, op.montant, op.idTypeOp);
-
-			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
-				ed.doExceptionDialog();
-				this.primaryStage.close();
-				op = null;
-			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
-				ed.doExceptionDialog();
-				op = null;
-			}
-		}
-		return op;
-	}
+    public Operation enregistrerVirement() {
+        // Ouvre et affiche une fenêtre d'édition d'opération
+        // et récupère l'opération saisie
+        OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
+        Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+        // Vérifie si une opération a été saisie
+        if (op != null) {
+            try {
+                Access_BD_Operation ao = new Access_BD_Operation();
+                ao.insertVirement(this.compteConcerne.idNumCompte, op.idNumCompte, op.montant);
+            } catch (DatabaseConnexionException e) {
+                // gestion des exceptions de connexion à la BDD
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.primaryStage.close();
+                op = null;
+            } catch (ApplicationException ae) {
+                // gestion des exceptions d'application
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+                op = null;
+            }
+        }
+        return op;
+    }
 	
 	/**
 	 * 

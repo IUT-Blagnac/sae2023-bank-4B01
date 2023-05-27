@@ -67,6 +67,9 @@ public class ClientsManagementController {
 		this.lvClients.getFocusModel().focus(-1);
 		this.lvClients.getSelectionModel().selectedItemProperty().addListener(e -> this.validateComponentState());
 		this.validateComponentState();
+		if (this.dailyBankState.isChefDAgence()==false) {
+			this.btnSimulerEmprunt.setDisable(true);
+		}
 	}
 
 	/**

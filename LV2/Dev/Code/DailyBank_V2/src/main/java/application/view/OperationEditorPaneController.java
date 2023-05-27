@@ -1,5 +1,6 @@
 package application.view;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 
@@ -20,6 +21,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.orm.Access_BD_CompteCourant;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
 
 /**
  * 
@@ -121,23 +125,35 @@ public class OperationEditorPaneController {
 			this.cbTypeOpe.getSelectionModel().select(0);
 			break;
 		case VIREMENT:
-			
-			String infoVir = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(infoVir);
-			this.txtVirement = new TextField();
-			this.labVirement = new Label("N° Destinataire : ");
-			gPVirement.add(txtVirement, 1, 1);
-			gPVirement.add(labVirement, 0, 1);
-			this.btnOk.setText("Effectuer Virement");
-			this.btnCancel.setText("Annuler");
-			this.cbTypeOpe.setDisable(true);
-			this.operationResultat.idNumCompte=Integer.parseInt(this.txtVirement.getText());
-			this.primaryStage.showAndWait();
-			
-			break;
-		}
+            this.primaryStage.setTitle("Enregistrer un virement");
+            info = "Compte n°" + this.compteEdite.idNumCompte + "  Solde : " + this.compteEdite.solde
+                    + "  Découvert Autorisé : " + Integer.toString(this.compteEdite.debitAutorise);
+            this.lblMessage.setText(info);
+            this.labVirement.setText("Compte du destinataire");
+            this.btnOk.setText("Effectuer virement");
+            this.btnCancel.setText("Annuler");
+
+            Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+            ObservableList<String> listTypesComptesPossibles = FXCollections.observableArrayList();
+            ArrayList<CompteCourant> listCompte = new ArrayList<CompteCourant>();
+
+            try {
+                listCompte = ac.getCompteCourants(this.compteEdite.idNumCli, true, this.compteEdite.idNumCompte);
+            } catch (DataAccessException e) {
+            } catch (DatabaseConnexionException e) {
+            }
+            for (int i = 0; i < listCompte.size(); i++) {
+                if (listCompte.get(i) != null) {
+                    if (listCompte.get(i).estCloture.equals("N")) {
+                        listTypesComptesPossibles.add("Numéro du Compte = " + listCompte.get(i).idNumCompte
+                                + "   Solde : " + listCompte.get(i).solde);
+                    }
+                }
+            }
+            this.cbTypeOpe.setItems(listTypesComptesPossibles);
+            this.cbTypeOpe.getSelectionModel().select(0);
+            break;
+        }
 
 		// Paramétrages spécifiques pour les chefs d'agences
 		if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {

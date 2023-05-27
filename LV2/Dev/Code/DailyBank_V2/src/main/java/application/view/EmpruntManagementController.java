@@ -109,6 +109,7 @@ public class EmpruntManagementController {
 	 */
 	@FXML
 	private void doValider() {
+						
 		if (estValide()) {
 			
 			//création du stage
@@ -118,15 +119,22 @@ public class EmpruntManagementController {
 			TableView<Emprunt> tableau = new TableView<>();
 			
 			//gestion des calculs
-			
-			double capDebut = Double.parseDouble(this.montant.getText());
+				
 			double montantInteret;
 			double montantPrincipal;
 			double montantMensualite;
 			double capFin;
-			
+				
 			int nbPeriode;
 			double tauxApplicable;
+			double assurance;
+			
+			//calcul mensualité assurance
+			if (isSimAssurance) {
+				assurance = Double.parseDouble(this.tauxAssurance.getText())*Double.parseDouble(this.montant.getText())/12/100;
+			}
+			else { assurance = 0;}
+			
 			
 			//calcul nombre de période
 			//calcul taux applicable
@@ -136,19 +144,20 @@ public class EmpruntManagementController {
 			}
 			else {nbPeriode=Integer.parseInt(this.duree.getText());
 				  tauxApplicable = Double.parseDouble(this.tauxAnnuel.getText())/100;
-			}
-		
+			}	
+			
+			double capDebut = Double.parseDouble(this.montant.getText())+assurance*nbPeriode;
 				
 			ObservableList<Emprunt> liste = FXCollections.observableArrayList();
 			
-			
+			DecimalFormat df = new DecimalFormat("0.00");
 			
 			
 			for (int i=1; i<=nbPeriode; i++) {
 
 				
 				//calcul mensualite
-				montantMensualite = Double.parseDouble(this.montant.getText())*(tauxApplicable/(1-Math.pow(1+tauxApplicable,-nbPeriode)));
+				montantMensualite = Double.parseDouble(this.montant.getText())*(tauxApplicable/(1-Math.pow(1+tauxApplicable,-nbPeriode)))+assurance;
 
 				//calcul interet
 				montantInteret = capDebut*tauxApplicable;

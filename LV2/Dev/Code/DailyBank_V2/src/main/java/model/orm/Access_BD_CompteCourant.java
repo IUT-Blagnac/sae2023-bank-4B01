@@ -120,6 +120,48 @@ public class Access_BD_CompteCourant {
 	}
 	
 	
+	public ArrayList<CompteCourant> getCompteCourants(int idNumCli, boolean isVirement, int idNumCpt)
+            throws DataAccessException, DatabaseConnexionException {
+
+        ArrayList<CompteCourant> alResult = new ArrayList<>();
+        PreparedStatement pst;
+
+        try {
+            Connection con = LogToDatabase.getConnexion();
+            String query;
+            if (isVirement && idNumCpt != -1) {
+                query = "SELECT * FROM CompteCourant where IDNUMCLI = ? AND IDNUMCOMPTE <> ?";
+                query += " ORDER BY idNumCompte";
+                pst = con.prepareStatement(query);
+                pst.setInt(1, idNumCli);
+                pst.setInt(2, idNumCpt);
+            } else {
+                query = "SELECT * FROM CompteCourant where idNumCli = ?";
+                query += " ORDER BY idNumCompte";
+                pst = con.prepareStatement(query);
+                pst.setInt(1, idNumCli);
+            }
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                int idNumCompte = rs.getInt("idNumCompte");
+                int debitAutorise = rs.getInt("debitAutorise");
+                double solde = rs.getDouble("solde");
+                String estCloture = rs.getString("estCloture");
+                int idNumCliTROUVE = rs.getInt("idNumCli");
+
+                alResult.add(new CompteCourant(idNumCompte, debitAutorise, solde, estCloture, idNumCliTROUVE));
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
+        }
+
+        return alResult;
+    }
+	
+	
 	
 	
 	/**
