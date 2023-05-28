@@ -72,7 +72,7 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 |         | Doc. Util. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Doc.Utilisateur_V2.adoc      |         
 |         | Doc. Tec. V2 |    https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Doc.Tech_V2.adoc            |     
 |         | Code V2    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV2/Dev/Code/DailyBank_V2                  | 
-|         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Cahier_de_Test_FINAL.adoc#ii-pre-requis                   | 
+|         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Cahier_de_Test_FINAL.adoc                   | 
 |         | `jar` projet | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/JAR_V2/DailyBank-2.0-shaded.jar   | 
 |         | Bilan projet |     |
 
