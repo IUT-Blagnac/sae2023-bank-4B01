@@ -486,7 +486,7 @@ image::Images_DocTechV2/DC-Releve-PDF.jpg[][alt=Diagramme de classe générer re
 
 ** application.view/ComptesManagementController.java: Elle permet de gérer la vue FXML. Elle récupère les informations des comptes du client et crée un document PDF ( _doGenererPDF()_ ).
 
-==== D. Diagramme de séquence de la fonctionnalité Virement compte à compte
+==== D. Diagramme de séquence de la fonctionnalité Générer un relevé mensuel PDF
 
 image::Images_DocTechV2/DS-Releve-PDF.jpg[][alt=Diagramme de séquence générer relevé PDF, title=Diagramme de séquence de générer relevé PDF]
 
