@@ -68,8 +68,8 @@ Analyse de l'existant succint, manque description des fichiers de la V0. Manque 
 |17/05 | JAR V1 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Jar/DailyBank-1.0-shaded.jar                      |
 | 17/05 | Code V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV1/Dev/Code/DailyBank_V1  |
 |         | Suivi projet V1|   | readme OK, arbo GIT OK, classez bien les fichiers. Continuez à commenter vos commits. Les issues du board semblent correspondre au GANTT, mais pas à jour en terme d'avancement. Attention a bien ajouter labels & milestones sur les issues. Respectez la convention de nommage du repo.
-| 26/05   | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Projet-DailyBank_GANTT-V2-Realiser_4B01.pdf      | 
-|         | Doc. Util. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Doc.Utilisateur_V2.adoc      |         
+| 26/05   | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Projet-DailyBank_GANTT-V2-Realiser_4B01.pdf      | gestion de projet:GANTT acceptable meme si difficilement lisible. taches cohérentes. Arbo GIT claire. Board à jour, avec les dernières activités en cours cohérentes ( prépa bilan / slides). Commits globalement OK. 13,5/20
+|         | Doc. Util. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Doc.Utilisateur_V2.adoc      | manque liste de l'équipe complète (page de garde). Manque contexte & objectifs,. Manque credentials, manque présentation des utilisateurs. Les fonctions ne sont parfois pas assez commentées, le nom du developpeur n'est pas mentionné. Il n'y a pas systèmatiquement de screenshots. A compléter. 9/20        
 |         | Doc. Tec. V2 |    https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Doc.Tech_V2.adoc            |     
 |         | Code V2    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV2/Dev/Code/DailyBank_V2                  | 
 |         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Cahier_de_Test_FINAL.adoc                   | 
