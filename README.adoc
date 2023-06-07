@@ -1,0 +1,80 @@
+## README : Team 4B01 (quatrebzeroun)
+
+## Présentation de l'équipe
+
+.L'équipe 4B01 est composée des quatre membres suivants :
+* Angelo Nichele
+* Mathis Brefuel
+* Maxime Planquès
+* Robin Fligitter
+
+
+
+
+## Répartition des tâches et état d'avancement
+[options="header,footer"]
+|=======================
+|version|rôle     |use case   |cas...                 |   Angelo | Maxime  |   Mathis | Robin
+|1    |Chef d’Agence    |CRUD employé  |C| | | F|
+|1    |Chef d’Agence    |CRUD employé  |R| | |F|
+|1    |Chef d’Agence |CRUD employé  |U| | | F|
+|1    |Chef d’Agence   |CRUD employé  |D| | | F|
+|1    |Guichetier     | Compte | Créer|  | F | |
+|1    |Guichetier     | Compte | Créditer/Débiter| F | | |
+|1    |Guichetier     | Compte | Effectuer un virement|  | | F (marche pas complètement) |
+|1    |Guichetier     | Compte | Clôturer|  | F |  |
+|2    |Chef d’Agence     | Compte | Débit exceptionnel|| F |  | 
+|2    |Chef d’Agence     | Emprunt | Simuler emprunt|| |F (marche pas complètement)  | F (marche pas complètement)
+|2    |Chef d’Agence     | Emprunt | Simuler assurance|| | F (marche pas complètement) | F (marche pas complètement)
+|2    |Guichetier     | Compte | Relevé PDF|  F | |  |
+|2    |Guichetier     | CRUD Prélèvement | C| F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | R|  F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | U| F | F |  |
+|2    |Guichetier     | CRUD Prélèvement | D| F | F |  |
+|2    |Batch     | Prélèvements automatiques | || | |
+|2    |Batch     | Reléves mensuels | || |  | 
+
+|=======================
+
+
+Chaque étudiant doit mettre son nom sur une des colonnes étudiant.
+Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a développé en indiquant
+
+*	*F* pour fonctionnel
+*	*D* pour encore en Développement
+
+## Livrables
+
+[cols="1,2,2,5",options=header]
+|===
+| Date    | Nom         |  Lien                             | Retour
+| Sem.19  | CDC V1      |        https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/cdcuV1.adoc                       |      respectez convention de nommage du repo.
+page de garde absente.
+Lien manquant sur le sommaire.
+affinez l'analyse de l'existant par rapport à ce qui vous a été fourni en entrant (documentation, executable ...).
+analyse du besoin: détaillez les UC V0, utilisateurs logiques, idem pour la V1, en priorisant les devs planifiés.
+ajouter les dates de livraison dans contraintes orga.
+reprendre les contraintes technique / orga.     
+|  12/05       |Gantt V1 Prévu|        https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Projet-DailyBank_4B1.pdf                          |ok, à présenter sur une seule page
+| 15/05   | Doc Tech V0 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV0/Dev/Doc.Tech_V0.adoc |
+| 15/05   | Doc User V0 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV0/GProg/Doc.Utilisateur_V0.adoc |
+| 16/05  | CDC V2final|  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/CDCU_V2.adoc                                   |11/20. manque équipe complète dans page de garde, manque problématique. objectif un peu succint.
+Analyse de l'existant succint, manque description des fichiers de la V0. Manque règles de gestion, priorisation dans analyse du besoin.Manque dans contraintes la planification des livraisons, et detail de certaines contraintes, et contrainte juridique.  
+|  16/05       | Gantt V1 Réalisé |     https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Diagramme_GANTT_Realise_Projet-Bank_4B1.pdf                          |Capture d'écran trop petite, GANTT illissible     
+|  16/05       | Gantt V2 Prevu| https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Diagramme_GANTT_V2_ProjetBank_4B1.pdf        |  découpage / enchainement des taches semblent OK, mais difficilement lisible. revoir la mise en page.   
+| 17/05   | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Doc.Tech_V1.adoc       |    La présentation générale de l'appli avec les acteurs et les rôles de chacun est trop restreinte. Le use case global est juste là pour illustrerL'architecture mériterait un schéma pour mieux comprendre. Il manque la description des ressources (environnement de dév) pour que l'on puisse reprendre facilement l'appli. Les fonctionnalités décrites sont OK mais il en manque ...Partie Mathis ? Dev Robin ???
+| 16/05    | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/GProg/Doc.Utilisateur_V1.adoc     |
+| 17/05        | Recette V1  |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Cahier_de_Test_V1.adoc                    | Attention vous devez prévoir les erreurs de saisie dans vos tests, pas que ce qui marche (voir ex débit)
+|17/05 | JAR V1 |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV1/Dev/Jar/DailyBank-1.0-shaded.jar                      |
+| 17/05 | Code V1 | https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV1/Dev/Code/DailyBank_V1  |
+|         | Suivi projet V1|   | readme OK, arbo GIT OK, classez bien les fichiers. Continuez à commenter vos commits. Les issues du board semblent correspondre au GANTT, mais pas à jour en terme d'avancement. Attention a bien ajouter labels & milestones sur les issues. Respectez la convention de nommage du repo.
+| 26/05   | Gantt V2  réalisé    | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Projet-DailyBank_GANTT-V2-Realiser_4B01.pdf      | gestion de projet:GANTT acceptable meme si difficilement lisible. taches cohérentes. Arbo GIT claire. Board à jour, avec les dernières activités en cours cohérentes ( prépa bilan / slides). Commits globalement OK. 13,5/20
+|         | Doc. Util. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Doc.Utilisateur_V2.adoc      | manque liste de l'équipe complète (page de garde). Manque contexte & objectifs,. Manque credentials, manque présentation des utilisateurs. Les fonctions ne sont parfois pas assez commentées, le nom du developpeur n'est pas mentionné. Il n'y a pas systèmatiquement de screenshots. A compléter. 9/20        
+|         | Doc. Tec. V2 |    https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Doc.Tech_V2.adoc            |     
+|         | Code V2    |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/tree/main/LV2/Dev/Code/DailyBank_V2                  | 
+|         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/Cahier_de_Test_FINAL.adoc                   | 
+|         | `jar` projet | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/Dev/JAR_V2/DailyBank-2.0-shaded.jar   | 
+| 03/06 | Chiffrage | https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Bilan%20de%20projet/Annexe/Chiffrage%20final.ods |
+|    05/06     | Bilan projet |  https://github.com/IUT-Blagnac/sae2023-bank-4B01/blob/main/LV2/GProg/Bilan%20de%20projet/Bilan%20de%20projet%202.05%20(1).pdf    |
+
+|===
